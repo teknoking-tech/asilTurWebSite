@@ -614,6 +614,178 @@
           document.documentElement.scrollTop = 0;
         }
       </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const brandName = document.querySelector('.brand-name');
+  const brandLogo = document.getElementById('brandLogo');
+  const checkbox = document.getElementById('checkbox');
+  const sideNavigation = document.querySelector('.side-navigation');
+  const sideNavLinks = document.querySelectorAll('.side-navigation a');
+  
+  function setDarkMode() {
+    document.body.classList.add('dark-mode');
+    brandName.style.color = '#e30713';
+    brandLogo.src = 'assets/images/WhatsApp Image 2024-03-16 at 13.23.27_1158a63b-Photoroom.png';
+    
+    // Side navigation dark mode styling
+    sideNavigation.style.backgroundColor = '#2C3338';
+    sideNavigation.style.boxShadow = '0 0 15px rgba(0,0,0,0.3)';
+    
+    // Side navigation heading
+    const sideNavHeading = sideNavigation.querySelector('h4');
+    if (sideNavHeading) {
+      sideNavHeading.style.color = '#ffffff';
+      sideNavHeading.style.borderBottomColor = '#444';
+    }
+    
+    // Side navigation links
+    sideNavLinks.forEach(link => {
+      link.style.color = '#ffffff';
+      
+      // Get the original background-color for hover state
+      const originalBgColor = window.getComputedStyle(link).getPropertyValue('--primary-color');
+      
+      // Remove existing event listeners first to prevent duplication
+      link.removeEventListener('mouseenter', handleMouseEnter);
+      link.removeEventListener('mouseleave', handleMouseLeave);
+      
+      // Add new event listeners
+      link.addEventListener('mouseenter', handleMouseEnter);
+      link.addEventListener('mouseleave', handleMouseLeave);
+      
+      // Apply active state if link has active class
+      if (link.classList.contains('active')) {
+        link.style.backgroundColor = 'var(--primary-color)';
+        link.style.color = '#ffffff';
+      }
+    });
+    
+    localStorage.setItem('theme', 'dark');
+    checkbox.checked = true;
+    console.log('Dark mode activated with side navigation styles');
+  }
+
+  function setLightMode() {
+    document.body.classList.remove('dark-mode');
+    brandName.style.color = '#2C3338';
+    brandLogo.src = 'assets/images/sonkus.png';
+    
+    // Reset side navigation styling
+    sideNavigation.style.backgroundColor = '#fff';
+    sideNavigation.style.boxShadow = '0 0 15px rgba(0,0,0,0.1)';
+    
+    // Reset side navigation heading
+    const sideNavHeading = sideNavigation.querySelector('h4');
+    if (sideNavHeading) {
+      sideNavHeading.style.color = 'var(--heading-color)';
+      sideNavHeading.style.borderBottomColor = '#eee';
+    }
+    
+    // Reset side navigation links
+    sideNavLinks.forEach(link => {
+      link.style.color = 'var(--heading-color)';
+      
+      // Remove event listeners
+      link.removeEventListener('mouseenter', handleMouseEnter);
+      link.removeEventListener('mouseleave', handleMouseLeave);
+      
+      // Reset hover and active state
+      if (link.classList.contains('active')) {
+        link.style.backgroundColor = 'var(--primary-color)';
+        link.style.color = '#ffffff';
+      } else {
+        link.style.backgroundColor = 'transparent';
+      }
+    });
+    
+    localStorage.setItem('theme', 'light');
+    checkbox.checked = false;
+    console.log('Light mode activated with side navigation styles');
+  }
+  
+  // Hover event handlers
+  function handleMouseEnter(e) {
+    if (!e.target.classList.contains('active')) {
+      e.target.style.backgroundColor = 'var(--primary-color)';
+      e.target.style.color = '#ffffff';
+    }
+  }
+  
+  function handleMouseLeave(e) {
+    if (!e.target.classList.contains('active')) {
+      e.target.style.backgroundColor = 'transparent';
+      e.target.style.color = '#ffffff';
+    }
+  }
+
+  // Tema değişimi için event listener
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      setDarkMode();
+    } else {
+      setLightMode();
+    }
+  });
+
+  // Update active link in navigation
+  function updateActiveLink() {
+    const sections = document.querySelectorAll('section[id]');
+    let current = '';
+    
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 150) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    sideNavLinks.forEach(link => {
+      link.classList.remove('active');
+      
+      if (link.getAttribute('href').slice(1) === current) {
+        link.classList.add('active');
+        // Apply active styles based on current theme
+        link.style.backgroundColor = 'var(--primary-color)';
+        link.style.color = '#ffffff';
+      } else {
+        // Reset non-active links based on current theme
+        if (localStorage.getItem('theme') === 'dark') {
+          link.style.backgroundColor = 'transparent';
+          link.style.color = '#ffffff';
+        } else {
+          link.style.backgroundColor = 'transparent';
+          link.style.color = 'var(--heading-color)';
+        }
+      }
+    });
+  }
+
+  // Add scroll event listener for active link
+  window.addEventListener('scroll', updateActiveLink);
+
+  // Smooth scroll
+  sideNavLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      document.querySelector(targetId).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    });
+  });
+
+  // Sayfa yüklendiğinde tema tercihini kontrol et
+  if (localStorage.getItem('theme') === 'dark') {
+    setDarkMode();
+  } else {
+    setLightMode();
+  }
+  
+  // İlk yüklendiğinde aktif linki işaretleyelim
+  updateActiveLink();
+});
+      </script>
       <!-- //move top -->
       <script>
         $(function () {
