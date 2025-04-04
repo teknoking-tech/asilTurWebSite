@@ -5,11 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Asil Tur - İletişim</title>
+  <title>Asil Tur - Teşekkürler</title>
   <!-- google fonts -->
   <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
@@ -17,6 +16,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-liberty.css">
   <!-- Template CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     .brand-name {
       font-family: 'Courgette', cursive;
@@ -39,131 +39,54 @@
       margin-right: 5px;
       object-fit: contain;
     }
+    
     .brand-name {
       font-family: 'Courgette', cursive;
       font-size: 35px !important;
     }
 
-    #whatsAppWidget {
-      animation: whatsapp-bounce 2s infinite;
-    }
-
-    #whatsAppWidget:hover {
-      transform: scale(1.1);
-      box-shadow: 0px 0px 12px rgba(0, 0, 0, .6);
-    }
-
-    @keyframes whatsapp-bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-    .contact-info-list {
-      max-width: 600px;
+    .thank-you-container {
+      text-align: center;
+      padding: 80px 20px;
+      max-width: 800px;
       margin: 0 auto;
     }
-    .contact-info {
-      display: flex;
-      align-items: flex-start;
-      padding: 20px;
-      background: #f8f9fa;
-      border-radius: 10px;
+
+    .thank-you-icon {
+      font-size: 80px;
+      color: #28a745;
+      margin-bottom: 30px;
+    }
+
+    .thank-you-title {
+      font-size: 36px;
       margin-bottom: 20px;
+      color: #333;
+    }
+
+    .thank-you-message {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #666;
+    }
+
+    .back-to-home {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #ff4e00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
       transition: all 0.3s ease;
     }
-    .contact-info:hover {
-      transform: translateY(-5px);
+
+    .back-to-home:hover {
+      background-color: #e04500;
+      transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-    .contact-info .icon {
-      background: #e30713;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 20px;
-      flex-shrink: 0;
-    }
-    .contact-info .icon span {
-      color: #fff;
-      font-size: 20px;
-    }
-    .contact-details h4 {
-      margin-bottom: 5px;
-      color: #2C3338;
-      font-size: 18px;
-    }
-    .contact-details p, .contact-details a {
-      margin: 0;
-      color: #666;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .contact-details a:hover {
-      color: #e30713;
-    }
-    [data-theme="dark"] .contact-info {
-      background: #2b2b2b;
-    }
-    [data-theme="dark"] .contact-details h4 {
-      color: #fff;
-    }
-    [data-theme="dark"] .contact-details p, 
-    [data-theme="dark"] .contact-details a {
-      color: #aaa;
-    }
-    .social-icons {
-      display: flex;
-      gap: 15px;
-    }
-    
-    .social-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-    
-    .social-icons a.facebook {
-      background: #3b5998;
-    }
-    
-    .social-icons a.instagram {
-      background: #e4405f;
-    }
-    
-    .social-icons a.twitter {
-      background: #1da1f2;
-    }
-    
-    .social-icons a.youtube {
-      background: #ff0000;
-    }
-    
-    .social-icons a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
   </style>
-  <style>
-    #whatsAppWidget {
-      animation: whatsapp-bounce 2s infinite;
-    }
-  
-    #whatsAppWidget:hover {
-      animation: none;
-    }
-  </style><!-- WhatsApp Icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -177,16 +100,11 @@
             <span class="brand-name">Asil tur</span>
           </a>
         </h1>
-        <!-- if logo is image enable this   
-      <a class="navbar-brand" href="#index.html">
-          <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-      </a> -->
-        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+        <button class="navbar-toggler collapsed bg-gradient" type="button" data-toggle="collapse"
           data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
           <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-          </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -200,9 +118,9 @@
             <li class="nav-item">
               <a class="nav-link" href="services.html">Turlar</a>
             </li>
-           <!--  <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="pricing.html">Tur Paketleri</a>
-            </li> -->
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -217,7 +135,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="contact.html">İletişim</a>
             </li>
-
           </ul>
         </div>
         <div class="d-lg-block d-none">
@@ -242,146 +159,37 @@
     </div>
   </header>
   <!-- //header -->
+  
   <!-- about breadcrumb -->
   <section class="w3l-about-breadcrumb text-left">
     <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
       <div class="container py-2">
-        <h2 class="title">İletişim</h2>
+        <h2 class="title">Teşekkürler</h2>
         <ul class="breadcrumbs-custom-path mt-2">
-          <li><a href="#url">Ana Sayfa</a></li>
-          <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> İletişim </li>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Teşekkürler </li>
         </ul>
       </div>
     </div>
   </section>
   <!-- //about breadcrumb -->
-  <!-- contact-form -->
+  
+  <!-- thank you section -->
   <section class="w3l-contact" id="contact">
     <div class="contact-infubd py-5">
       <div class="container py-lg-3">
-        <div class="contact-grids row">
-          <div class="col-lg-6 contact-left">
-            <div class="heading text-center mx-auto">
-              <h3 class="head">Bizimle İletişime Geçin</h3>
-              <p class="my-3 head"> Size en iyi hizmeti sunabilmek için buradayız. Herhangi bir sorunuz veya öneriniz için lütfen bizimle iletişime geçin.</p>
-            </div>
-            <div class="contact-info-list mt-5 pt-3">
-              <div class="contact-info mb-4">
-                <div class="icon">
-                  <span class="fa fa-location-arrow"></span>
-                </div>
-                <div class="contact-details"><!-- Font Awesome -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-                <style>
-                  #whatsAppWidget {
-                    animation: whatsapp-bounce 2s infinite;
-                  }
-                
-                  #whatsAppWidget:hover {
-                    transform: scale(1.1);
-                    box-shadow: 0px 0px 12px rgba(0, 0, 0, .6);
-                  }
-                
-                  @keyframes whatsapp-bounce {
-                    0%, 100% {
-                      transform: translateY(0);
-                    }
-                    50% {
-                      transform: translateY(-10px);
-                    }
-                  }
-                </style><!-- WhatsApp Icon -->
-                <a id="whatsAppWidget" style="height: 52px;width: 52px;border-radius: 50%;overflow: hidden;box-shadow: 0px 0px 6px rgba(0, 0, 0, .4);font-size: 34px;text-align: center;line-height: 52px;color: white;background:#25d366;position:fixed;bottom: 80px;left: 20px;z-index: 999;transition: all 0.3s ease;" href="https://api.whatsapp.com/send?phone=905378548919&text=Merhaba gezileriniz hakkında bilgi alabilirmiyim" target="_blank">
-                  <i class="fab fa-whatsapp"></i>
-                </a>
-                  <h4>Adres:</h4>
-                  <p>Üçtutlar, Fatih Cd. NO:34/B, 19100 Çorum Merkez/Çorum</p>
-                </div>
-              </div>
-              <div class="contact-info mb-4">
-                <div class="icon">
-                  <span class="fa fa-phone"></span>
-                </div>
-                <div class="contact-details">
-                  <h4>Telefon:</h4>
-                  <p><a href="tel:+90-536-521-0670">0536 521 06 70</a></p>
-                </div>
-              </div>
-              <div class="contact-info mb-4">
-                <div class="icon">
-                  <span class="fa fa-envelope"></span>
-                </div>
-                <div class="contact-details">
-                  <h4>Mail:</h4>
-                  <p><a href="mailto:asil19tur@gmail.com" class="email">asil19tur@gmail.com</a></p>
-                </div>
-              </div>
-              <div class="contact-info">
-                <div class="icon">
-                  <span class="fa fa-clock-o"></span>
-                </div>
-                <div class="contact-details">
-                  <h4>Çalışma Saatleri:</h4>
-                  <p>09:00 - 18:00</p>
-                </div>
-              </div>
-            </div>
+        <div class="thank-you-container">
+          <div class="thank-you-icon">
+            <i class="fas fa-check-circle"></i>
           </div>
-          <div class="col-lg-6 mt-lg-0 mt-5 contact-right">
-            <h3 class="contact-title">Bize Ulaşın</h3>
-            <p class="mb-4">E-posta adresiniz yayınlanmayacak. Gerekli alanlar * ile işaretlenmiştir.</p>
-            <!-- İletişim formu - FormSubmit servisi ile email yönlendirme -->
-<form action="https://formsubmit.co/asil19tur2018@gmail.com" method="POST" class="contact-form">
-  <!-- Form spam koruması için honeypot alanı -->
-  <input type="text" name="_honey" style="display:none">
-  
-  <!-- Otomatik yanıt sayfasını devre dışı bırak -->
-  <input type="hidden" name="_captcha" value="false">
-  
-  <!-- Form gönderildikten sonra aynı sayfaya dönmek için -->
-  <input type="hidden" name="_next" value="https://asil19tur.com/tesekkurler.html">
-  
-  <!-- Email konu başlığını belirle -->
-  <input type="hidden" name="_subject" value="Asil Tur Web Sitesi - Yeni İletişim Formu">
-  
-  <div class="input-grids">
-    <div class="form-group">
-      <input type="text" name="name" id="w3lName" placeholder="Adınız*" class="contact-input" required />
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" id="w3lSender" placeholder="E-posta*" class="contact-input" required />
-    </div>
-    <div class="form-group">
-      <input type="text" name="subject" id="w3lSubect" placeholder="Konu*" class="contact-input" required />
-    </div>
-  </div>
-  <div class="form-group">
-    <textarea name="message" id="w3lMessage" placeholder="Mesajınız*" required></textarea>
-  </div>
-  <div class="text-right">
-    <button type="submit" class="btn btn-style btn-primary">Mesaj Gönder</button>
-  </div>
-</form>
-            <div class="thank-you-message mt-3" style="display: none;">
-              <p>Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.</p>
-            </div>
-            <div class="error-message mt-3" style="display: none;">
-              <p>Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.</p>
-            </div>    
-            
-          </div>
-
-        </div>
-        <div class="map mt-5 pt-md-5">
-          <h5>Harita</h5>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.0077580325227!2d34.95340637643566!3d40.4271075714387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x408654dab0b7f6c5%3A0x6a0c4e38f3a3f3e9!2zw5zDp3R1dGxhciwgRmF0aWggQ2QuIE5POjM0L0IsIDE5MTAwIMOHb3J1bSBNZXJrZXovw4dvcnVt!5e0!3m2!1str!2str!4v1706739600000"
-            style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <h2 class="thank-you-title">Mesajınız İçin Teşekkürler!</h2>
+          <p class="thank-you-message">Mesajınız başarıyla gönderildi. En kısa sürede size geri dönüş yapacağız.</p>
+          <a href="index.html" class="back-to-home">Ana Sayfaya Dön</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- /contact-form -->
+  <!-- //thank you section -->
 
   <!--/w3l-footer-29-main-->
   <footer>
@@ -498,35 +306,6 @@
   <!-- Template JavaScript -->
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/theme-change.js"></script>
-  <!--/MENU-JS-->
-  <script>
-    $(window).on("scroll", function () {
-      var scroll = $(window).scrollTop();
-
-      if (scroll >= 80) {
-        $("#site-header").addClass("nav-fixed");
-      } else {
-        $("#site-header").removeClass("nav-fixed");
-      }
-    });
-
-    //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
-      $("header").toggleClass("active");
-    });
-    $(document).on("ready", function () {
-      if ($(window).width() > 991) {
-        $("header").removeClass("active");
-      }
-      $(window).on("resize", function () {
-        if ($(window).width() > 991) {
-          $("header").removeClass("active");
-        }
-      });
-    });
-  </script>
-  <!--//MENU-JS-->
-
   <script src="assets/js/bootstrap.min.js"></script>
 
   <script>
@@ -541,7 +320,6 @@
         brandLogo.src = 'assets/images/WhatsApp Image 2024-03-16 at 13.23.27_1158a63b-Photoroom.png';
         localStorage.setItem('theme', 'dark');
         checkbox.checked = true;
-        console.log('Dark mode activated');
       }
 
       function setLightMode() {
@@ -550,7 +328,6 @@
         brandLogo.src = 'assets/images/sonkus.png';
         localStorage.setItem('theme', 'light');
         checkbox.checked = false;
-        console.log('Light mode activated');
       }
 
       // Tema değişimi için event listener
@@ -570,7 +347,6 @@
       }
     });
   </script>
-
 </body>
 
 </html>
