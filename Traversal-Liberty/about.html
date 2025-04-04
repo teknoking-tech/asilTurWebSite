@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Asil Tur - Hakkımızda</title>
+  <!-- google fonts -->
+  <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style-liberty.css">
+  <!-- Template CSS -->
+  <style>
+    .brand-name {
+      font-family: 'Courgette', cursive;
+      font-size: 28px;
+      text-transform: none;
+      transition: color 0.3s ease;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #brandLogo {
+      width: 50px;
+      height: 50px;
+      margin-right: 5px;
+      object-fit: contain;
+    }
+    .brand-name {
+      font-family: 'Courgette', cursive;
+      font-size: 35px !important;
+    }
+
+    #whatsAppWidget {
+      animation: whatsapp-bounce 2s infinite;
+    }
+
+    #whatsAppWidget:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 0px 12px rgba(0, 0, 0, .6);
+    }
+
+    @keyframes whatsapp-bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a.facebook {
+      background: #3b5998;
+    }
+    
+    .social-icons a.instagram {
+      background: #e4405f;
+    }
+    
+    .social-icons a.twitter {
+      background: #1da1f2;
+    }
+    
+    .social-icons a.youtube {
+      background: #ff0000;
+    }
+    
+    .social-icons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-container {
+        display: flex;
+        padding-top: 80px;
+    }
+
+    .side-navigation {
+        width: 250px;
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+        padding: 20px;
+        margin-left: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .side-navigation h4 {
+        color: var(--heading-color);
+        font-size: 18px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 15px;
+    }
+
+    .side-navigation ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .side-navigation li {
+        margin-bottom: 10px;
+    }
+
+    .side-navigation a {
+        display: block;
+        padding: 10px 15px;
+        color: var(--heading-color);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .side-navigation a:hover {
+        background: var(--primary-color);
+        color: #fff;
+    }
+
+    .side-navigation a.active {
+        background: var(--primary-color);
+        color: #fff;
+    }
+
+    .main-content {
+        flex: 1;
+        padding: 0 30px;
+    }
+
+    @media (max-width: 768px) {
+        .about-container {
+            flex-direction: column;
+        }
+        
+        .side-navigation {
+            width: 100%;
+            margin: 0 0 20px 0;
+            position: relative;
+            top: 0;
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <!--header-->
+  <header id="site-header" class="fixed-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg stroke">
+        <h1>
+          <a class="navbar-brand mr-lg-5" href="index.html">
+            <img id="brandLogo" src="assets/images/sonkus.png" alt="Asil Tur Logo">
+            <span class="brand-name">Asil tur</span>
+          </a>
+        </h1>
+        <!-- if logo is image enable this   
+      <a class="navbar-brand" href="#index.html">
+          <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+      </a> -->
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+          <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="about.html">Hakkımızda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Turlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pricing.html">Tur Paketleri</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Blog<span class="fa fa-angle-down"></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="blog.html">Blog Yazıları</a>
+                <a class="dropdown-item" href="blog-single.html">Blog Detay</a>
+                <a class="dropdown-item" href="landing-single.html">Özel Sayfa</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">İletişim</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="d-lg-block d-none">
+          <a href="contact.html" class="btn btn-style btn-secondary">İletişime Geç</a>
+        </div>
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+          <nav class="navigation">
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="mode-container">
+                  <i class="gg-sun"></i>
+                  <i class="gg-moon"></i>
+                </div>
+              </label>
+            </div>
+          </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+  <!-- //header -->
+  <!-- about breadcrumb -->
+  <section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container py-2">
+        <h2 class="title">Hakkımızda</h2>
+        <ul class="breadcrumbs-custom-path mt-2">
+          <li><a href="#url">Ana Sayfa</a></li>
+          <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Hakkımızda </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- //about breadcrumb -->
+  <!-- /about-6-->
+  <div class="about-container">
+    <!-- Sol Navigasyon -->
+    <nav class="side-navigation">
+        <h4>İçindekiler</h4>
+        <ul>
+            <li><a href="#about-us">Hakkımızda</a></li>
+            <li><a href="#values">Değerlerimiz</a></li>
+            <li><a href="#isg-policy">İSG Politikası</a></li>
+            <li><a href="#quality-policy">Kalite Politikası</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ana İçerik -->
+    <div class="main-content">
+        <section id="about-us" class="w3l-content-6 py-5">
+            <div class="container py-lg-5">
+                <div class="ab-section">
+                    <h6 class="sub-title">Hakkımızda</h6>
+                    <h3 class="hny-title">Geleceği Asil'le Taşıyoruz</h3>
+                    <p class="py-3">Asil Tur, 2018 yılında kurulan ve turizm sektöründe yenilikçi hizmetler sunan bir turizm şirketidir. Her yaş grubundan misafirlerimize, yüksek kalitede servis ve üstün hizmet sunmayı ilke edindik. Hem gezi turları düzenliyor hem de okul servisleri hizmeti sunarak geniş bir yelpazede faaliyet gösteriyoruz. TÜRSAB belgeli bir firma olarak, güler yüzlü ve profesyonel ekibimizle siz değerli misafirlerimize en iyi deneyimi yaşatmayı hedefliyoruz.</p>
+                    
+                    <p class="py-3">Kadromuz, müşteri memnuniyetini ön planda tutarak sürekli gelişim ve başarının peşinden gitmektedir. Teknolojinin sunduğu tüm imkanları kullanarak, ekonomik ve pratik çözümler sunabilen, alanında uzman bir ekiple trendleri yakından takip etmekteyiz.</p>
+
+                    <h3 class="hny-title mt-5">Misyon & Vizyon</h3>
+                    <p class="py-3">Amacımız, düzenlediğimiz turların her aşamasında insan odaklı bir yaklaşımla misafirlerimize en iyi hizmeti sunmak ve pozitif bir enerji ile hareket etmektir. Toplumun ve misafirlerimizin ihtiyaçlarını esas alarak, faaliyet gösterdiğimiz her alanda örnek bir marka olmayı ve sürdürülebilir mutluluk yaratmayı hedefliyoruz.</p>
+                    
+                    <p class="py-3">Ulusal ve uluslararası turizm sektöründe adımızı duyurmak ve yer edinmek için sürekli gelişim içinde olmayı, her yaş grubundan misafirimize en iyi şekilde hizmet vermeyi misyon edindik.</p>
+
+                    <h3 class="hny-title mt-5">Değerlerimiz</h3>
+                    <ul class="mt-4" style="list-style: none; padding-left: 0;">
+                        <li class="py-2">✓ Müşteri Memnuniyeti</li>
+                        <li class="py-2">✓ Performansta Süreklilik</li>
+                        <li class="py-2">✓ Kalite, Samimiyet ve Güven</li>
+                        <li class="py-2">✓ Hizmette Üretkenlik ve Verimlilik</li>
+                    </ul><!-- Font Awesome -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                    <style>
+                        #whatsAppWidget {
+                            animation: whatsapp-bounce 2s infinite;
+                        }
+                      
+                        #whatsAppWidget:hover {
+                            transform: scale(1.1);
+                            box-shadow: 0px 0px 12px rgba(0, 0, 0, .6);
+                        }
+                      
+                        @keyframes whatsapp-bounce {
+                            0%, 100% {
+                                transform: translateY(0);
+                            }
+                            50% {
+                                transform: translateY(-10px);
+                            }
+                        }
+                    </style><!-- WhatsApp Icon -->
+                    <a id="whatsAppWidget" style="height: 52px;width: 52px;border-radius: 50%;overflow: hidden;box-shadow: 0px 0px 6px rgba(0, 0, 0, .4);font-size: 34px;text-align: center;line-height: 52px;color: white;background:#25d366;position:fixed;bottom: 80px;left: 20px;z-index: 999;transition: all 0.3s ease;" href="https://api.whatsapp.com/send?phone=905378548919&text=Merhaba gezileriniz hakkında bilgi alabilirmiyim" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-9 mx-auto">
+                        <img src="assets/images/sirketResimleri/araclar.jpg" class="img-fluid" alt="Asil Tur">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="values" class="w3l-content-6 py-5">
+            <div class="container py-lg-5">
+                <div class="row">
+                    <div class="col-lg-12 content-6-right mb-lg-0 mb-4">
+                        <h6 class="sub-title">İş Sağlığı ve Güvenliği</h6>
+                        <h3 class="hny-title">İş Sağlığı ve Güvenliği Politikamız</h3>
+                        <p class="mb-3">Asil19 Turizm olarak, ulusal ve uluslararası yasal mevzuat ve düzenlemelere tam uyum sağlamayı, sürekli gelişimi esas alan bir İş Sağlığı ve Güvenliği Yönetim Sistemi oluşturmayı ve uygulamayı taahhüt ediyoruz. "Sıfır Tolerans", "Önce İş Güvenliği" ve "Proaktif İSG" anlayışıyla sağlıklı ve güvenli bir çalışma ortamı oluşturmak temel önceliğimizdir.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-lg-12 mb-4">
+                                <h4 class="mb-3" style="color: var(--primary-color);">Bu doğrultuda:</h4>
+                                <ul class="list-unstyled points">
+                                    <li class="mb-3"><i class="fas fa-check-circle mr-2" style="color: var(--primary-color);"></i>Tüm faaliyetlerimizde risk değerlendirmesi yaparak, önceden belirlenen sağlık ve güvenlik risklerini analiz edip en aza indirmeyi,</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle mr-2" style="color: var(--primary-color);"></i>Çalışanlarımızın ve tedarikçilerimizin İş Sağlığı ve Güvenliği bilincini artırmak amacıyla eğitim faaliyetleri düzenlemeyi,</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle mr-2" style="color: var(--primary-color);"></i>Sürdürülebilir bir İSG Yönetim Sistemi kurarak performansını sürekli iyileştirmeye yönelik metotlar geliştirmeyi ve bu doğrultuda hedefler ile yönetim programları oluşturmayı,</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle mr-2" style="color: var(--primary-color);"></i>Sıfır iş kazası ve sıfır meslek hastalığı hedefiyle, proaktif yaklaşımlar benimseyerek gerekli tüm önlemleri alarak verimliliğimizi artırmayı ana hedeflerimiz olarak belirliyoruz.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-3"><strong>Asil19 Turizm olarak</strong>, tüm çalışanlarımızın ve paydaşlarımızın desteğiyle, sağlıklı ve güvenli bir çalışma ortamı oluşturmayı ve bu doğrultuda sürekli iyileştirme sağlamayı taahhüt ederiz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="isg-policy" class="w3l-content-6 py-5" style="background: #f8f9fa;">
+            <div class="container py-lg-5">
+                <div class="row">
+                    <div class="col-lg-12 content-6-right mb-lg-0 mb-4">
+                        <h6 class="sub-title">Kalite Politikamız</h6>
+                        <h3 class="hny-title">ASIL19 TURİZM – Kalite Politikası</h3>
+                        <p class="mb-4">ASIL19 TURİZM olarak, personel taşımacılığı hizmetimizi değerlerimize özel önem vererek, müşteri taleplerini ulusal ve uluslararası standartlara uygun şekilde, üst düzey kalite, doğru zamanlama ve akılcı maliyet prensipleri ile yönetmeyi ve beklentilerin ötesine geçmeyi ana ilkemiz olarak benimsiyoruz.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-lg-12">
+                                <h4 class="mb-3" style="color: var(--primary-color);">Bu doğrultuda:</h4>
+                                <ul class="list-unstyled points">
+                                    <li class="mb-3">
+                                        <i class="fas fa-star mr-2" style="color: var(--primary-color);"></i>
+                                        Temel değerlerimizi şirket kültürümüze entegre ederek huzurlu bir çalışma ortamı oluşturmayı ve çalışanlarımızın performansını, kalite bilincini ve müşteri memnuniyetini sürekli eğitimlerle artırmayı,
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-star mr-2" style="color: var(--primary-color);"></i>
+                                        Stratejik hedeflerimize ulaşırken, faaliyet gösterdiğimiz ülkenin tüm yasal gerekliliklerine uygun, etkin ve verimli bir kalite yönetim sistemi uygulamayı,
+                                    </li>
+                                    <li class="mb-3">
+                                        <i class="fas fa-star mr-2" style="color: var(--primary-color);"></i>
+                                        Hizmet kalitemizi sürekli iyileştirmek amacıyla sektörel gelişmeleri ve teknolojik yenilikleri yakından takip ederek, bunları şirket yapımıza entegre etmek için gerekli kaynakları kullanmayı taahhüt ediyoruz.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-4"><strong>ASIL19 TURİZM olarak</strong>, müşteri memnuniyetini en üst seviyede tutarak sürdürülebilir bir kalite anlayışı ile hizmet vermeye devam edeceğiz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quality-policy" class="w3l-grids1">
+            <div class="hny-three-grids py-5">
+                <div class="container py-lg-5">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 mt-0 grids5-info">
+                            <a href="#url"><img src="assets/images/g1.jpg" class="img-fluid" alt=""></a>
+                            <h5>Güvenli Seyahat</h5>
+                            <h4><a href="#url">Güvenilir Hizmet</a></h4>
+                            <p>Modern araç filomuz ve deneyimli şoförlerimizle güvenli bir yolculuk deneyimi sunuyoruz.</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mt-sm-0 mt-5 grids5-info">
+                            <a href="#url"><img src="assets/images/g2.jpg" class="img-fluid" alt=""></a>
+                            <h5>Kaliteli Hizmet</h5>
+                            <h4><a href="#url">Profesyonel Ekip</a></h4>
+                            <p>Deneyimli rehberlerimiz ve profesyonel ekibimizle en iyi hizmeti sunmaya çalışıyoruz.</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mt-md-0 mt-5 grids5-info">
+                            <a href="#url"><img src="assets/images/g3.jpg" class="img-fluid" alt=""></a>
+                            <h5>7/24 Destek</h5>
+                            <h4><a href="#url">Müşteri Hizmetleri</a></h4>
+                            <p>Seyahatiniz boyunca 7/24 yanınızdayız. İhtiyacınız olduğunda bize her an ulaşabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- stats -->
+        <section class="w3l-statshny py-5" id="stats">
+            <div class="container py-lg-5 py-md-4">
+                <div class="w3-stats-inner-info">
+                    <div class="row">
+                        <div class="col-lg-4 col-6 stats_info counter_grid text-left">
+                            <span class="fa fa-smile-o"></span>
+                            <p class="counter">1812</p>
+                            <h4>Mutlu Müşteri</h4>
+                        </div>
+                        <div class="col-lg-4 col-6 stats_info counter_grid1 text-left">
+                            <span class="fa fa-users"></span>
+                            <p class="counter">730</p>
+                            <h4>Düzenlenen Tur</h4>
+                        </div>
+                        <div class="col-lg-4 col-6 stats_info counter_grid mt-lg-0 mt-5 text-left">
+                            <span class="fa fa-database"></span>
+                            <p class="counter">4</p>
+                            <h4>Rehber</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //stats -->
+
+        <!-- team -->
+        <section class="w3l-team" id="team">
+            <div class="team-block py-5">
+                <div class="container py-lg-5">
+                    <div class="title-content text-center mb-lg-3 mb-4">
+                        <h6 class="sub-title">Ekibimiz</h6>
+                        <h3 class="hny-title">Rehberlerimizle Tanışın</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-6 mt-lg-5 mt-4">
+                            <div class="grids5-info">
+                                <a href="#url"><img src="assets/images/team1.jpg" class="img-fluid" alt=""></a>
+                                <div class="blog-info">
+                                    <h4><a href="#url">Ahmet Yılmaz</a></h4>
+                                    <p>Baş Rehber</p>
+                                    <div class="icon-social mt-4">
+                                        <a href="#url" class="button-footr"><span class="fa fa-facebook"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-twitter"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-instagram"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6 mt-lg-5 mt-4">
+                            <div class="grids5-info">
+                                <a href="#url"><img src="assets/images/team2.jpg" class="img-fluid" alt=""></a>
+                                <div class="blog-info">
+                                    <h4><a href="#url">Ayşe Demir</a></h4>
+                                    <p>Kültür Turu Rehberi</p>
+                                    <div class="icon-social mt-4">
+                                        <a href="#url" class="button-footr"><span class="fa fa-facebook"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-twitter"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-instagram"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6 mt-lg-5 mt-4">
+                            <div class="grids5-info">
+                                <a href="#url"><img src="assets/images/team3.jpg" class="img-fluid" alt=""></a>
+                                <div class="blog-info">
+                                    <h4><a href="#url">Mehmet Kaya</a></h4>
+                                    <p>Doğa Turu Rehberi</p>
+                                    <div class="icon-social mt-4">
+                                        <a href="#url" class="button-footr"><span class="fa fa-facebook"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-twitter"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-instagram"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6 mt-lg-5 mt-4">
+                            <div class="grids5-info">
+                                <a href="#url"><img src="assets/images/team4.jpg" class="img-fluid" alt=""></a>
+                                <div class="blog-info">
+                                    <h4><a href="#url">Zeynep Şahin</a></h4>
+                                    <p>Yurt Dışı Tur Rehberi</p>
+                                    <div class="icon-social mt-4">
+                                        <a href="#url" class="button-footr"><span class="fa fa-facebook"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-twitter"></span></a>
+                                        <a href="#url" class="button-footr"><span class="fa fa-instagram"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //team -->
+    </div>
+  </div>
+  <!--/w3l-footer-29-main-->
+  <footer>
+    <!-- footer -->
+    <section class="w3l-footer">
+      <div class="w3l-footer-16-main py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 column">
+              <div class="row">
+                <div class="col-md-4 column">
+                  <h3>Şirket</h3>
+                  <ul class="footer-gd-16">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="services.html">Turlar</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 column mt-md-0 mt-4">
+                  <h3>Yararlı Linkler</h3>
+                  <ul class="footer-gd-16">
+                    <li><a href="#url">Turlar</a></li>
+                    <li><a href="#url">Şubelerimiz</a></li>
+                    <li><a href="#url">Son Medya</a></li>
+                    <li><a href="about.html">Şirket Hakkında</a></li>
+                    <li><a href="#url">Tur Paketlerimiz</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 column mt-md-0 mt-4">
+                  <h3>Hizmetlerimiz</h3>
+                  <ul class="footer-gd-16">
+                    <li><a href="#url">Gizlilik Politikası</a></li>
+                    <li><a href="#url">Şartlarımız</a></li>
+                    <li><a href="services.html">Turlar</a></li>
+                    <li><a href="landing-single.html">Özel Sayfa</a></li>
+                    <li><a href="#url">Rehberlerimiz</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 column pl-lg-5 column4 mt-lg-0 mt-5">
+              <h3>Bülten </h3>
+              <div class="end-column">
+                <h4>En son haberleri ve fırsatları alın.</h4>
+                <form action="#" class="subscribe" method="post">
+                  <input type="email" name="email" placeholder="E-posta Adresi" required="">
+                  <button type="submit">Gönder</button>
+                </form>
+                <div class="social-media mt-4">
+                  <h3>Bizi Takip Edin</h3>
+                  <div class="social-icons mt-3">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex below-section justify-content-between align-items-center pt-4 mt-5">
+            <div class="columns text-lg-left text-center">
+              <p>&copy; 2024 Asil Tur. Tüm hakları saklıdır.</p>
+            </div>
+            <div class="columns-2 mt-lg-0 mt-3">
+              <ul class="social">
+                <li><a href="https://www.facebook.com/p/Asil-19-tur-100064703917928/" target="_blank"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                </li>
+                <li><a href="https://www.instagram.com/asil19turizm" target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- move top -->
+      <button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction()
+        };
+  
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+          } else {
+            document.getElementById("movetop").style.display = "none";
+          }
+        }
+  
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <!-- //move top -->
+      <script>
+        $(function () {
+          $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+          })
+        });
+      </script>
+    </section>
+    <!-- //footer -->
+  </footer>
+  <!-- Template JavaScript -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/theme-change.js"></script>
+  <!-- stats number counter-->
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.countup.js"></script>
+  <script>
+    $('.counter').countUp();
+  </script>
+  <!-- //stats number counter -->
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
+
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const brandName = document.querySelector('.brand-name');
+      const brandLogo = document.getElementById('brandLogo');
+      const checkbox = document.getElementById('checkbox');
+      
+      function setDarkMode() {
+        document.body.classList.add('dark-mode');
+        brandName.style.color = '#e30713';
+        brandLogo.src = 'assets/images/WhatsApp Image 2024-03-16 at 13.23.27_1158a63b-Photoroom.png';
+        localStorage.setItem('theme', 'dark');
+        checkbox.checked = true;
+        console.log('Dark mode activated');
+      }
+
+      function setLightMode() {
+        document.body.classList.remove('dark-mode');
+        brandName.style.color = '#2C3338';
+        brandLogo.src = 'assets/images/sonkus.png';
+        localStorage.setItem('theme', 'light');
+        checkbox.checked = false;
+        console.log('Light mode activated');
+      }
+
+      // Tema değişimi için event listener
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          setDarkMode();
+        } else {
+          setLightMode();
+        }
+      });
+
+      // Sayfa yüklendiğinde tema tercihini kontrol et
+      if (localStorage.getItem('theme') === 'dark') {
+        setDarkMode();
+      } else {
+        setLightMode();
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.side-navigation a');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                if (window.scrollY >= section.offsetTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+
+        // Smooth scroll
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest'
+                });
+            });
+        });
+    });
+  </script>
+</body>
+
+</html>
