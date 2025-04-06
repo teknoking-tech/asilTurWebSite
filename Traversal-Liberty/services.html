@@ -16,6 +16,8 @@
   <!-- google fonts -->
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-liberty.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/consolidated-styles.css">
   <!-- Template CSS -->
   <style>
     .brand-name {
@@ -86,19 +88,31 @@
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-  </style>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
+
     #whatsAppWidget {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999;
+      height: 52px;
+      width: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, .4);
+      font-size: 34px;
+      text-align: center;
+      line-height: 52px;
+      color: white;
+      background: #25d366;
       animation: whatsapp-bounce 2s infinite;
     }
-  
+
     #whatsAppWidget:hover {
       transform: scale(1.1);
       box-shadow: 0px 0px 12px rgba(0, 0, 0, .6);
+      animation: none;
     }
-  
+
     @keyframes whatsapp-bounce {
       0%, 100% {
         transform: translateY(0);
@@ -107,20 +121,149 @@
         transform: translateY(-10px);
       }
     }
+    
+    /* Hover effect on the tour cards */
+    .hover-effect {
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .hover-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    /* Custom button styles */
+    .contact-btn, .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    
+    .contact-btn {
+      background: linear-gradient(135deg, #42a5f5, #4377e8);
+      color: white;
+    }
+    
+    .contact-btn:hover {
+      background: linear-gradient(135deg, #4377e8, #3f51b5);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #25d366, #128C7E);
+      color: white;
+    }
+    
+    .whatsapp-btn:hover {
+      background: linear-gradient(135deg, #128C7E, #075E54);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+    
+    .contact-icon {
+      margin-right: 5px;
+    }
+    
+    /* Tour duration styling */
+    .tour-duration {
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      color: #6c757d;
+      background-color: #f8f9fa;
+      padding: 5px 12px;
+      border-radius: 50px;
+      width: fit-content;
+    }
+    
+    .tour-duration i {
+      margin-right: 5px;
+      color: #ff4e00;
+    }
+    
+    /* Make the images more attractive */
+    .subject-img img {
+      transition: all 0.5s ease;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .subject-card:hover .subject-img img {
+      transform: scale(1.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+      .contact-options {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .contact-btn, .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0 !important;
+      }
+    }
+
+    /* Sosyal Medya Modal Stilleri */
+    .social-media-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-media-modal {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .social-media-modal h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .social-media-modal-overlay.show {
+      display: flex;
+    }
+
+    .social-media-modal.show {
+      display: block;
+    }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const medyaBizBtn = document.getElementById('medyaBizBtn');
-      const closeModal = document.getElementById('closeModal');
-
-      medyaBizBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-      });
-
-      closeModal.addEventListener('click', function() {
-      });
-    });
-  </script>
 </head>
 
 <body>
@@ -134,16 +277,11 @@
             <span class="brand-name">Asil tur</span>
           </a>
         </h1>
-        <!-- if logo is image enable this   
-      <a class="navbar-brand" href="#index.html">
-          <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-      </a> -->
-        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+        <button class="navbar-toggler collapsed bg-gradient" type="button" data-toggle="collapse"
           data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
           <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-          </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -155,11 +293,8 @@
               <a class="nav-link" href="about.html">Hakkımızda</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="services.html">Turlar</a>
+              <a class="nav-link" href="services.html">Turlar <span class="sr-only">(current)</span></a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="pricing.html">Tur Paketleri</a>
-            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -168,7 +303,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <a class="dropdown-item" href="blog.html">Blog Yazıları</a>
                 <a class="dropdown-item" href="blog-single.html">Blog Detay</a>
-                <a class="dropdown-item" href="landing-single.html">Özel Sayfa</a>
+                <!-- <a class="dropdown-item" href="landing-single.html">Özel Sayfa</a> -->
               </div>
             </li>
             <li class="nav-item">
@@ -179,270 +314,382 @@
             </li>
           </ul>
           <!-- toggle switch for light and dark theme -->
+          <div class="mobile-position">
+            <nav class="navigation">
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox">
+                  <div class="mode-container">
+                    <i class="gg-sun"></i>
+                    <i class="gg-moon"></i>
+                  </div>
+                </label>
+              </div>
+            </nav>
+          </div>
+          <!-- //toggle switch for light and dark theme -->
         </div>
-        <div class="mobile-position">
-          <nav class="navigation">
-            <div class="theme-switch-wrapper">
-              <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="mode-container">
-                  <i class="gg-sun"></i>
-                  <i class="gg-moon"></i>
-                </div>
-              </label>
-
-            </div>
-          </nav>
-        </div>
-        <!-- //toggle switch for light and dark theme -->
       </nav>
     </div>
   </header>
   <!-- //header -->
+
+  <!-- Sosyal Medya Modal -->
+  <div class="social-media-modal-overlay" id="socialMediaOverlay">
+    <div class="social-media-modal" id="socialMediaModal">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>Bizi Sosyal Medyada Takip Edin</h2>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/p/Asil-19-tur-100064703917928/" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/asil19turizm" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
   <!-- about breadcrumb -->
   <section class="w3l-about-breadcrumb text-left">
     <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
       <div class="container">
         <h2 class="title">Turlarımız</h2>
         <ul class="breadcrumbs-custom-path mt-2">
-          <li><a href="#url">Ana Sayfa</a></li>
+          <li><a href="index.html">Ana Sayfa</a></li>
           <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Turlar </li>
         </ul>
       </div>
     </div>
   </section>
   <!-- //about breadcrumb -->
- <!--  Work gallery section -->
- <section class="grids-1 py-5">
-  <div class="grids py-lg-5 py-md-4">
-      <div class="container">
-          <div class="heading text-center mx-auto">
-            <h3 class="head">Popüler Tur Paketlerimiz</h3>
-            <p class="my-3 head"> Size özel hazırlanmış, unutulmaz deneyimler sunan turlarımızı keşfedin. </p>
-          </div>
-          <div class="row">
-              <div class="col-lg-4 col-md-4 col-6">
-                  <div class="column">
-                      <a href="blog-single.html"><img src="assets/images/g1.jpg" alt="" class="img-fluid"></a>
-                      <div class="info">
-                          <h3 class="title-big">Kapadokya Turu</h3>
-                          <h5 class="mt-3">3 Gün, 2 Gece</h5>
-                          <p class="mt-3">Kapadokya'nın eşsiz güzelliklerini keşfedin. Özel rehber eşliğinde yeraltı şehirlerini gezin, 
-                          Göreme Açık Hava Müzesi'ni ziyaret edin ve muhteşem bir balon turuyla Kapadokya'yı kuşbakışı görün.</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-4 col-6 mt-md-0">
-                  <div class="column">
-                      <a href="blog-single.html"><img src="assets/images/g2.jpg" alt="" class="img-fluid"></a>
-                      <div class="info">
-                          <h3 class="title-big">Pamukkale Turu</h3>
-                          <h5 class="mt-3">2 Gün, 1 Gece</h5>
-                          <p class="mt-3">Beyaz travertenleri ve antik Hierapolis kentini keşfedin. Kleopatra Havuzu'nda yüzün ve 
-                          tarihi kalıntılar arasında keyifli bir yürüyüş yapın.</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-4 col-md-4 col-6 mt-md-0 mt-4">
-                  <div class="column">
-                      <a href="blog-single.html"><img src="assets/images/g3.jpg" alt="" class="img-fluid"></a>
-                      <div class="info">
-                          <h3 class="title-big">Efes Antik Kenti Turu</h3>
-                          <h5 class="mt-3">Tam Gün</h5>
-                          <p class="mt-3">Dünyanın en iyi korunmuş antik kentlerinden birini keşfedin. Celsus Kütüphanesi, 
-                          Büyük Tiyatro ve Hadrian Tapınağı gibi önemli yapıları görün.</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+  <!-- Popüler Turlar Section -->
+  <section class="w3l-grids-3 py-5">
+    <div class="container py-md-5">
+      <div class="title-content text-left mb-lg-5 mb-4">
+        <h6 class="sub-title">GEZİLECEK</h6>
+        <h3 class="hny-title">Popüler Turlar</h3>
+        <p class="mt-3">Türkiye'nin dört bir yanındaki eşsiz destinasyonları keşfedin. Size özel hazırlanmış, konforlu ve keyifli turlarımızla unutulmaz anılar biriktirin.</p>
       </div>
-</div></section>
-<!--  //Work gallery section -->
-<!-- grids block 5 -->
-  <!--/w3l-footer-29-main-->
-  <footer>
-    <!-- footer -->
-    <section class="w3l-footer">
-      <div class="w3l-footer-16 py-5">
-        <div class="container py-md-5 py-3">
-          <div class="row footer-p">
-            <div class="col-lg-4 col-md-6 pe-lg-5">
-              <h3>Hakkımızda</h3>
-              <p class="mt-3">20 yılı aşkın deneyimimizle Türkiye'nin dört bir yanına unutulmaz turlar düzenliyoruz. 
-              Profesyonel ekibimiz ve kaliteli hizmet anlayışımızla sizlere en iyi deneyimi sunuyoruz.</p>
-              <div class="social-media mt-4">
-                <h3>Bizi Takip Edin</h3>
-                <div class="social-icons mt-3">
-                  <a href="https://www.facebook.com/p/Asil-19-tur-100064703917928/" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/asil19turizm" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-                  <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                  <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+      <div class="row bottom-ab-grids">
+        <!--/row-grids-->
+        <div class="col-lg-6 subject-card mt-lg-0 mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/anitkabir.jpg" class="img-fluid rounded" alt="Anıtkabir Turu">
+              </div>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">Ankara Anıtkabir Turu</h4>
+                <p>Türkiye Cumhuriyeti'nin kurucusu Mustafa Kemal Atatürk'ün anıt mezarı ve müzesini ziyaret edin. Modern Türkiye'nin kuruluş tarihine tanıklık edin.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=Ankara Anıtkabir Turu hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>2 Günlük Tur</span>
                 </div>
               </div>
             </div>
-            <div class="col-lg-5 col-md-6 mt-md-0 mt-5">
-              <div class="row">
-                <div class="col-lg-6 col-md-6">
-                  <h3>Bağlantılar</h3>
-                  <div class="footer-gd-16">
-                    <ul>
-                      <li><a href="index.html">Ana Sayfa</a></li>
-                      <li><a href="about.html">Hakkımızda</a></li>
-                      <li><a href="services.html">Turlar</a></li>
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="contact.html">İletişim</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <h3>Faydalı Linkler</h3>
-                  <div class="footer-gd-16">
-                    <ul>
-                      <li><a href="#url">Tur Paketleri</a></li>
-                      <li><a href="#url">Gizlilik Politikası</a></li>
-                      <li><a href="#url">Şartlar ve Koşullar</a></li>
-                      <li><a href="#url">SSS</a></li>
-                      <li><a href="#url">Destek</a></li>
-                    </ul>
-                  </div>
-                </div>
+            
+          </div>
+        </div>
+        <div class="col-lg-6 subject-card mt-lg-0 mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/Bolu Gölcük milli parkı, Türkiye.jpg" class="img-fluid rounded" alt="Bolu Turu">
               </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-lg-0 mt-5">
-              <h3>Bülten </h3>
-              <div class="end-column">
-                <h4>En son haberleri ve fırsatları alın.</h4>
-                <form action="#" method="post" class="subscribe" novalidate="novalidate">
-                  <input type="email" name="email" placeholder="Email Adresiniz" required="">
-                  <button type="submit">Abone Ol</button>
-                </form>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">Bolu Doğa Turu</h4>
+                <p>Gölcük Milli Parkı ve Abant Gölü'nün eşsiz manzarasında doğayla iç içe bir gün geçirin. Yemyeşil ormanlar ve göl manzarası eşliğinde unutulmaz anlar yaşayın.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=Bolu Doğa Turu hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>1 Günlük Tur</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="below-section text-center pt-4 mt-5">
-            <p class="copy-text">&copy; 2024 Asil Tur. Tüm hakları saklıdır.
-            </p>
+        </div>
+        <div class="col-lg-6 subject-card mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/Galata kulesi.jpg" class="img-fluid rounded" alt="İstanbul Turu">
+              </div>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">İstanbul Tarihi Yarımada Turu</h4>
+                <p>Galata Kulesi, Ayasofya ve Sultanahmet Camii gibi tarihi mekanları keşfedin. İstanbul'un büyüleyici atmosferinde unutulmaz bir yolculuğa çıkın.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=İstanbul Tarihi Yarımada Turu hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>3 Günlük Tur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 subject-card mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/Uzungöl _ Trabzon.jpg" class="img-fluid rounded" alt="Trabzon Turu">
+              </div>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">Trabzon Uzungöl Turu</h4>
+                <p>Uzungöl'ün eşsiz doğal güzelliklerini keşfedin. Yemyeşil yayla ve göl manzarası eşliğinde Karadeniz'in muhteşem atmosferini yaşayın.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=Trabzon Uzungöl Turu hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>4 Günlük Tur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 subject-card mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/diyarbakir.jpg" class="img-fluid rounded" alt="Diyarbakır Turu">
+              </div>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">Diyarbakır Kültür Turu</h4>
+                <p>Diyarbakır'ın tarihi surları, Hevsel Bahçeleri ve zengin mutfağını keşfedin. Mezopotamya'nın kadim şehrinde kültür dolu bir yolculuğa çıkın.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=Diyarbakır Kültür Turu hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>3 Günlük Tur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 subject-card mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/kapadokya.jpg" class="img-fluid rounded" alt="Kapadokya Turu">
+              </div>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">Kapadokya Masalsı Tur</h4>
+                <p>Peri bacaları, yeraltı şehirleri ve sıcak hava balonlarıyla büyülü bir deneyim yaşayın. Kapadokya'nın eşsiz coğrafyasında unutulmaz anlar.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=Kapadokya Masalsı Tur hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>3 Günlük Tur</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 subject-card mt-4">
+          <div class="subject-card-header p-4 hover-effect">
+            <div class="row align-items-center">
+              <div class="col-sm-5 subject-img">
+                <img src="assets/images/geziler/Konya.jpg" class="img-fluid rounded" alt="Konya Turu">
+              </div>
+              <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                <h4 class="mb-3">Konya Mevlana Turu</h4>
+                <p>Mevlana Müzesi, Selçuklu mimarisi ve manevi atmosferiyle Konya'yı keşfedin. Türk-İslam kültürünün en önemli merkezlerinden birini ziyaret edin.</p>
+                <div class="contact-options mt-3 d-flex">
+                  <a href="contact.html" class="contact-btn mr-3">
+                    <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=905378548919&text=Konya Mevlana Turu hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+                <div class="tour-duration mt-3">
+                  <i class="far fa-clock"></i> <span>2 Günlük Tur</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-  
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fa fa-angle-up"></span>
-      </button>
-      <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-          scrollFunction()
-        };
-  
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
-            document.getElementById("movetop").style.display = "none";
-          }
-        }
-  
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-      </script>
-      <!-- //move top -->
-      <script>
-        $(function () {
-          $('.navbar-toggler').click(function () {
-            $('body').toggleClass('noscroll');
-          })
-        });
-      </script>
-    </section>
-    <!-- //footer -->
-  </footer>
+    </div>
+  </section>
 
+  <!-- Çağrı Hareketi Bölümü -->
+  <section class="w3l-cta4 py-5">
+    <div class="container py-lg-5 py-md-4 py-2 text-center">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto">
+          <h3 class="hny-title">Özel tur paketi mi arıyorsunuz?</h3>
+          <p class="mt-3">Size ve grubunuza özel tur düzenlemek için bizimle iletişime geçin. İhtiyaçlarınıza göre özelleştirilmiş turlar hazırlıyoruz.</p>
+          <div class="d-flex justify-content-center mt-4">
+            <a href="contact.html" class="btn btn-style btn-secondary mx-2">İletişime Geç</a>
+            <a href="https://api.whatsapp.com/send?phone=905378548919&text=Özel tur paketi hakkında bilgi almak istiyorum" target="_blank" class="btn btn-style btn-primary mx-2">WhatsApp ile Ulaşın</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <section class="w3l-footer">
+      <div class="w3l-footer-16-main py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 column">
+              <div class="row">
+                <div class="col-md-4 column">
+                  <h3>Şirket</h3>
+                  <ul class="footer-gd-16">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="services.html">Turlar</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 column mt-md-0 mt-4">
+                  <h3>Yararlı Linkler</h3>
+                  <ul class="footer-gd-16">
+                    <li><a href="#url">Turlar</a></li>
+                    <li><a href="#url">Şubemiz</a></li>
+                    <li><a href="#url">Son Medya</a></li>
+                    <li><a href="about.html">Şirket Hakkında</a></li>
+                    <li><a href="#url">Tur Paketlerimiz</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 column mt-md-0 mt-4">
+                  <h3>Hizmetlerimiz</h3>
+                  <ul class="footer-gd-16">
+                    <li><a href="#url">Gizlilik Politikası</a></li>
+                    <li><a href="#url">Şartlarımız</a></li>
+                    <li><a href="services.html">Turlar</a></li>
+                    <li><a href="landing-single.html">Özel Sayfa</a></li>
+                    <li><a href="#url">Rehberlerimiz</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 column pl-lg-5 column4 mt-lg-0 mt-5">
+              <h3>Abone Olun</h3>
+              <div class="end-column">
+                <h4>Abone olun ve son haberlerden haberdar olun.</h4>
+                <form action="#" method="post" class="newsletter">
+                  <input type="email" name="email" placeholder="Email Adresiniz" required="">
+                  <button type="submit">Abone Ol</button>
+                </form>
+                <p>Abone olun ve en son haberleri alın. Spam mailler göndermeyiz.</p>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </section>
+    <section class="w3l-copyright">
+      <div class="container">
+        <div class="row bottom-copies">
+          <p class="col-lg-8 copy-footer-29">© 2020 Asil Tur. Tüm hakları saklıdır.
+
+          </a></p>
+          <div class="col-lg-4 social-footer-29">
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/p/Asil-19-tur-100064703917928/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/asil19turizm" class="instagram"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <!-- //footer -->
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+  </button>
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("movetop").style.display = "block";
+      } else {
+        document.getElementById("movetop").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera          
+    }
+    // Toggle the modal
+    document.getElementById('medyaBizBtn').addEventListener('click', function () {
+      document.getElementById('socialMediaOverlay').classList.toggle('show');
+      document.getElementById('socialMediaModal').classList.toggle('show');
+    });
+    // Close the modal when the close button is clicked 
+    document.getElementById('closeModal').addEventListener('click', function () {
+      document.getElementById('socialMediaOverlay').classList.remove('show');
+      document.getElementById('socialMediaModal').classList.remove('show');                           
+      
+    })
+    // Close the modal when clicking outside of it            
+    document.getElementById('socialMediaOverlay').addEventListener('click', function (event) {
+      if (event.target === this) {
+        this.classList.remove('show');
+        document.getElementById('socialMediaModal').classList.remove('show');
+      }         
+    })         
+  </script>
   <!-- Template JavaScript -->
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/theme-change.js"></script>
-  <!--/MENU-JS-->
-  <script>
-    $(window).on("scroll", function () {
-      var scroll = $(window).scrollTop();
-
-      if (scroll >= 80) {
-        $("#site-header").addClass("nav-fixed");
-      } else {
-        $("#site-header").removeClass("nav-fixed");
-      }
-    });
-
-    //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
-      $("header").toggleClass("active");
-    });
-    $(document).on("ready", function () {
-      if ($(window).width() > 991) {
-        $("header").removeClass("active");
-      }
-      $(window).on("resize", function () {
-        if ($(window).width() > 991) {
-          $("header").removeClass("active");
-        }
-      });
-    });
-  </script>
-  <!--//MENU-JS-->
-
-  <script src="assets/js/bootstrap.min.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const brandName = document.querySelector('.brand-name');
-      const brandLogo = document.getElementById('brandLogo');
-      const checkbox = document.getElementById('checkbox');
-      
-      function setDarkMode() {
-        document.body.classList.add('dark-mode');
-        brandName.style.color = '#e30713';
-        brandLogo.src = 'assets/images/WhatsApp Image 2024-03-16 at 13.23.27_1158a63b-Photoroom.png';
-        localStorage.setItem('theme', 'dark');
-        checkbox.checked = true;
-        console.log('Dark mode activated');
-      }
-
-      function setLightMode() {
-        document.body.classList.remove('dark-mode');
-        brandName.style.color = '#2C3338';
-        brandLogo.src = 'assets/images/sonkus.png';
-        localStorage.setItem('theme', 'light');
-        checkbox.checked = false;
-        console.log('Light mode activated');
-      }
-
-      // Tema değişimi için event listener
-      checkbox.addEventListener('change', function() {
-        if (this.checked) {
-          setDarkMode();
-        } else {
-          setLightMode();
-        }
-      });
-
-      // Sayfa yüklendiğinde tema tercihini kontrol et
-      if (localStorage.getItem('theme') === 'dark') {
-        setDarkMode();
-      } else {
-        setLightMode();
-      }
-    });
-  </script>
-<!-- WhatsApp Icon -->
-<a id="whatsAppWidget" style="height: 52px;width: 52px;border-radius: 50%;overflow: hidden;box-shadow: 0px 0px 6px rgba(0, 0, 0, .4);font-size: 34px;text-align: center;line-height: 52px;color: white;background:#25d366;position:fixed;bottom: 80px;left: 20px;z-index: 999;transition: all 0.3s ease;" href="https://api.whatsapp.com/send?phone=905378548919&text=Merhaba gezileriniz hakkında bilgi alabilirmiyim" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-</body>
-
-</html>
-</html>
+  <script src="assets/js/bootstrap.min.js"></script>  
+  <script src="assets/js/owl.carousel.js"></script>  
+  <script src="assets/js/owl.carousel2.thumbs.js"></script>      
+  <script src="assets/js/counter.js"></script>
+  
