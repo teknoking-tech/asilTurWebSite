@@ -114,6 +114,119 @@
         transform: translateY(-10px);
       }
     }
+      /* Arama sonuçları için stiller */
+  #searchResults {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+  }
+  
+  .available-dates {
+    font-size: 13px;
+    color: #666;
+    padding-left: 20px;
+  }
+  
+  .tour-dates {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    padding: 5px 12px;
+    border-radius: 50px;
+    width: fit-content;
+    flex-wrap: wrap;
+  }
+  
+  .tour-dates i {
+    margin-right: 5px;
+    color: #ff4e00;
+  }
+  
+  /* Tarihlerin listesi için stiller */
+  .tour-dates .available-dates {
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  /* Responsive düzeltmeler */
+  @media (max-width: 576px) {
+    .tour-dates {
+      width: 100%;
+    }
+  }
+
+   /* Arama bölümü için stiller */
+   .search-section {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    z-index: 99;
+  }
+  
+  .search-section .form-control {
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+  }
+  
+  .search-section .btn {
+    height: 50px;
+  }
+  
+  /* Arama sonuçları için stiller */
+  #searchResults {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .available-dates {
+    font-size: 13px;
+    color: #666;
+    padding-left: 20px;
+  }
+  
+  .tour-dates {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    padding: 5px 12px;
+    border-radius: 50px;
+    width: fit-content;
+    flex-wrap: wrap;
+  }
+  
+  .tour-dates i {
+    margin-right: 5px;
+    color: #ff4e00;
+  }
+  
+  /* Tarihlerin listesi için stiller */
+  .tour-dates .available-dates {
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  /* Responsive düzeltmeler */
+  @media (max-width: 576px) {
+    .tour-dates {
+      width: 100%;
+    }
+    
+    .contact-options {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .contact-btn, .whatsapp-btn {
+      width: 100%;
+      justify-content: center;
+      margin-right: 0 !important;
+    }
+  }
   </style>
 </head>
 
@@ -217,33 +330,8 @@
             <div class="banner-infhny">
               <h3 id="sliderTitle">İstanbul'un Tarihi Güzelliklerini Keşfedin</h3>
               <h6 class="mb-3" id="sliderSubtitle">Boğaz'ın İki Yakasında Muhteşem Bir Yolculuk</h6>
-              <div class="flex-wrap search-wthree-field mt-md-5 mt-4">
-                <form action="#" method="post" class="booking-form">
-                  <div class="row book-form">
-                    <div class="form-input col-md-4 mt-md-0 mt-3">
+              <!-- Formun değiştirilmiş hali - Ana sayfadaki arama formu kısmı -->
 
-                      <select name="selectpicker" class="selectpicker">
-                        <option value="">Konum</option>
-                        <option value="africa">Nevşehir</option>
-                        <option value="america">İstanbul</option>
-                        <option value="asia">Ankara</option>
-                        <option value="eastern-europe">İzmir</option>
-                        <option value="europe">Bolu</option>
-                        <option value="south-america">Doğu Ekspres</option>
-                      </select>
-
-                    </div>
-                    <div class="form-input col-md-4 mt-md-0 mt-3">
-
-                      <input type="date" name="" placeholder="Tarih" required="">
-                    </div>
-                    <div class="bottom-btn col-md-4 mt-md-0 mt-3">
-                      <button class="btn btn-style btn-secondary"><span class="fa fa-search mr-3"
-                          aria-hidden="true"></span> Ara</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
             </div>
           </div>
         </div>
@@ -252,7 +340,54 @@
   </section>
   <!-- /main-slider -->
   <!-- //banner-slider-->
-
+  <section class="search-section py-4 bg-light">
+    <div class="container">
+      <div class="title-content text-center mb-4">
+        <h3 class="hny-title">Tur Arama</h3>
+        <p>İstediğiniz konum ve tarihe göre turlarımızı bulun</p>
+      </div>
+      <div class="flex-wrap search-wthree-field">
+        <form id="searchForm" class="booking-form">
+          <div class="row book-form">
+            <div class="form-input col-md-4 mt-md-0 mt-3">
+              <select name="location" id="locationSelect" class="selectpicker form-control">
+                <option value="">Konum Seçin</option>
+                <option value="nevsehir">Nevşehir</option>
+                <option value="istanbul">İstanbul</option>
+                <option value="ankara">Ankara</option>
+                <option value="izmir">İzmir</option>
+                <option value="bolu">Bolu</option>
+                <option value="trabzon">Trabzon</option>
+                <option value="diyarbakir">Diyarbakır</option>
+                <option value="konya">Konya</option>
+              </select>
+            </div>
+            <div class="form-input col-md-4 mt-md-0 mt-3">
+              <input type="date" id="tourDate" name="date" class="form-control" placeholder="Tarih" required>
+            </div>
+            <div class="bottom-btn col-md-4 mt-md-0 mt-3">
+              <button type="button" id="searchButton" class="btn btn-style btn-secondary btn-block">
+                <span class="fa fa-search mr-3" aria-hidden="true"></span> Ara
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 3. Arama Sonuçları Bölümü -->
+  <section id="searchResults" style="display: none; padding-top: 0;">
+    <div class="container py-md-5">
+      <div class="title-content text-left mb-4">
+        <h3 class="hny-title">Arama Sonuçları</h3>
+        <p id="resultsCount" class="mt-2">Bulunan turlar listeleniyor...</p>
+      </div>
+      <div id="resultsList" class="row bottom-ab-grids">
+        <!-- Arama sonuçları buraya dinamik olarak eklenecek -->
+      </div>
+    </div>
+  </section>
   <!--/grids-->
   <!-- Popüler Turlar Section with updated buttons instead of prices -->
 <section class="w3l-grids-3 py-5">
@@ -853,7 +988,7 @@
   </div> -->
   <!-- //stats -->
   <!--/w3l-bottom-->
-  <section class="w3l-bottom py-5">
+  <!-- <section class="w3l-bottom py-5">
     <div class="container py-md-5">
       <div class="row my-lg-4 mt-4">
         <div class="col-lg-9 col-md-10 ml-auto">
@@ -870,7 +1005,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!--//w3l-bottom-->
   <!-- testimonials -->
   <section class="w3l-clients" id="clients">
@@ -1300,3 +1435,211 @@
     });
   });
 </script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tüm turların verileri
+    const tours = [
+      {
+        id: 1,
+        title: "Ankara Anıtkabir Turu",
+        description: "Türkiye Cumhuriyeti'nin kurucusu Mustafa Kemal Atatürk'ün anıt mezarı ve müzesini ziyaret edin.",
+        location: "ankara",
+        image: "assets/images/geziler/anitkabir.jpg",
+        duration: "2 Günlük Tur",
+        availableDates: ["2025-04-10", "2025-04-20", "2025-05-05", "2025-05-19", "2025-06-02"]
+      },
+      {
+        id: 2,
+        title: "Bolu Doğa Turu",
+        description: "Gölcük Milli Parkı ve Abant Gölü'nün eşsiz manzarasında doğayla iç içe bir gün geçirin.",
+        location: "bolu",
+        image: "assets/images/geziler/Bolu Gölcük milli parkı, Türkiye.jpg",
+        duration: "1 Günlük Tur",
+        availableDates: ["2025-04-07", "2025-04-14", "2025-04-21", "2025-04-28", "2025-05-05", "2025-05-12"]
+      },
+      {
+        id: 3,
+        title: "İstanbul Tarihi Yarımada Turu",
+        description: "Galata Kulesi, Ayasofya ve Sultanahmet Camii gibi tarihi mekanları keşfedin.",
+        location: "istanbul",
+        image: "assets/images/geziler/Galata kulesi.jpg", 
+        duration: "3 Günlük Tur",
+        availableDates: ["2025-04-09", "2025-04-16", "2025-04-23", "2025-04-30", "2025-05-07"]
+      },
+      {
+        id: 4,
+        title: "Trabzon Uzungöl Turu",
+        description: "Uzungöl'ün eşsiz doğal güzelliklerini keşfedin. Yemyeşil yayla ve göl manzarası eşliğinde Karadeniz'in muhteşem atmosferini yaşayın.",
+        location: "trabzon",
+        image: "assets/images/geziler/Uzungöl _ Trabzon.jpg",
+        duration: "4 Günlük Tur",
+        availableDates: ["2025-04-15", "2025-04-29", "2025-05-13", "2025-05-27", "2025-06-10"]
+      },
+      {
+        id: 5,
+        title: "Diyarbakır Kültür Turu",
+        description: "Diyarbakır'ın tarihi surları, Hevsel Bahçeleri ve zengin mutfağını keşfedin.",
+        location: "diyarbakir",
+        image: "assets/images/geziler/diyarbakir.jpg",
+        duration: "3 Günlük Tur",
+        availableDates: ["2025-04-12", "2025-04-26", "2025-05-10", "2025-05-24", "2025-06-07"]
+      },
+      {
+        id: 6,
+        title: "Kapadokya Masalsı Tur",
+        description: "Peri bacaları, yeraltı şehirleri ve sıcak hava balonlarıyla büyülü bir deneyim yaşayın.",
+        location: "nevsehir",
+        image: "assets/images/geziler/kapadokya.jpg",
+        duration: "3 Günlük Tur",
+        availableDates: ["2025-04-08", "2025-04-15", "2025-04-22", "2025-04-29", "2025-05-06"]
+      },
+      {
+        id: 7,
+        title: "Konya Mevlana Turu",
+        description: "Mevlana Müzesi, Selçuklu mimarisi ve manevi atmosferiyle Konya'yı keşfedin.",
+        location: "konya",
+        image: "assets/images/geziler/Konya.jpg",
+        duration: "2 Günlük Tur",
+        availableDates: ["2025-04-11", "2025-04-25", "2025-05-09", "2025-05-23", "2025-06-06"]
+      },
+      {
+        id: 8,
+        title: "İzmir Kültür Turu",
+        description: "Efes Antik Kenti, Şirince Köyü ve İzmir'in güzel sahillerini keşfedin.",
+        location: "izmir",
+        image: "assets/images/slider/duzenlenenler/istanbul.jpg",
+        duration: "3 Günlük Tur",
+        availableDates: ["2025-04-13", "2025-04-27", "2025-05-11", "2025-05-25", "2025-06-08"]
+      }
+    ];
+  
+    // DOM elemanlarını seçme
+    const searchForm = document.getElementById('searchForm');
+    const locationSelect = document.getElementById('locationSelect');
+    const tourDate = document.getElementById('tourDate');
+    const searchButton = document.getElementById('searchButton');
+    const searchResults = document.getElementById('searchResults');
+    const resultsList = document.getElementById('resultsList');
+    const resultsCount = document.getElementById('resultsCount');
+  
+    // Ara butonuna tıklama işlemi
+    searchButton.addEventListener('click', function() {
+      const selectedLocation = locationSelect.value;
+      const selectedDate = tourDate.value;
+      
+      // Filtreleme işlemi
+      const filteredTours = filterTours(selectedLocation, selectedDate);
+      
+      // Sonuçları gösterme
+      displayResults(filteredTours);
+    });
+  
+    // Turları filtreleme fonksiyonu
+    function filterTours(location, date) {
+      return tours.filter(tour => {
+        // Lokasyon filtresi
+        const locationMatch = !location || tour.location === location;
+        
+        // Tarih filtresi
+        let dateMatch = true;
+        if (date) {
+          // Seçilen tarih, turun mevcut tarihleri arasında mı kontrol et
+          dateMatch = tour.availableDates.some(availableDate => {
+            const tourDateObj = new Date(availableDate);
+            const selectedDateObj = new Date(date);
+            
+            // Ay ve yıl eşleşmesini kontrol et (gün eşleşmese de olur)
+            return tourDateObj.getMonth() === selectedDateObj.getMonth() && 
+                   tourDateObj.getFullYear() === selectedDateObj.getFullYear();
+          });
+        }
+        
+        return locationMatch && dateMatch;
+      });
+    }
+  
+    // Sonuçları gösterme fonksiyonu
+    function displayResults(results) {
+      // Sonuçlar bölümünü temizle
+      resultsList.innerHTML = '';
+      
+      // Sonuç sayısını güncelle
+      resultsCount.textContent = `${results.length} tur bulundu`;
+      
+      if (results.length === 0) {
+        resultsList.innerHTML = '<div class="col-12 text-center py-4">' +
+                                '<p>Seçilen kriterlere uygun tur bulunamadı.</p>' +
+                                '<p>Lütfen farklı bir tarih veya lokasyon seçiniz.</p>' +
+                                '</div>';
+      } else {
+        // Her bir tur için kart oluştur
+        results.forEach(tour => {
+          const tourCard = `
+            <div class="col-lg-6 subject-card mt-4">
+              <div class="subject-card-header p-4 hover-effect">
+                <div class="row align-items-center">
+                  <div class="col-sm-5 subject-img">
+                    <img src="${tour.image}" class="img-fluid rounded" alt="${tour.title}">
+                  </div>
+                  <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                    <h4 class="mb-3">${tour.title}</h4>
+                    <p>${tour.description}</p>
+                    <div class="contact-options mt-3 d-flex">
+                      <a href="contact.html" class="contact-btn mr-3">
+                        <i class="fas fa-envelope contact-icon"></i> İletişime Geç
+                      </a>
+                      <a href="https://api.whatsapp.com/send?phone=905378548919&text=${encodeURIComponent(tour.title)} hakkında bilgi almak istiyorum" target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                      </a>
+                    </div>
+                    <div class="tour-duration mt-3">
+                      <i class="far fa-clock"></i> <span>${tour.duration}</span>
+                    </div>
+                    <div class="tour-dates mt-3">
+                      <i class="far fa-calendar-alt"></i> <span>Uygun Tarihler:</span>
+                      <div class="available-dates mt-1">
+                        ${formatAvailableDates(tour.availableDates)}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          resultsList.innerHTML += tourCard;
+        });
+      }
+      
+      // Sonuçları göster
+      searchResults.style.display = 'block';
+      
+      // Sayfayı sonuçlara kaydır
+      searchResults.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Tarihleri formatlama fonksiyonu
+    function formatAvailableDates(dates) {
+      const formattedDates = dates.slice(0, 3).map(date => {
+        const d = new Date(date);
+        return `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`;
+      }).join(', ');
+      
+      const remaining = dates.length - 3;
+      if (remaining > 0) {
+        return formattedDates + ` ve ${remaining} tarih daha...`;
+      }
+      
+      return formattedDates;
+    }
+  
+    // Bugünün tarihini varsayılan olarak ayarla
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    tourDate.value = `${year}-${month}-${day}`;
+  });
+  </script>
