@@ -227,6 +227,601 @@
       margin-right: 0 !important;
     }
   }
+
+  /* Hover effect on the tour cards */
+  .hover-effect {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  /* Custom button styles */
+  .contact-btn, .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  }
+  
+  .contact-btn {
+    background: linear-gradient(135deg, #42a5f5, #4377e8);
+    color: white;
+  }
+  
+  .contact-btn:hover {
+    background: linear-gradient(135deg, #4377e8, #3f51b5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  }
+  
+  .whatsapp-btn {
+    background: linear-gradient(135deg, #25d366, #128C7E);
+    color: white;
+  }
+  
+  .whatsapp-btn:hover {
+    background: linear-gradient(135deg, #128C7E, #075E54);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  }
+  
+  .contact-icon {
+    margin-right: 5px;
+  }
+  
+  /* Tour duration styling */
+  .tour-duration {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    padding: 5px 12px;
+    border-radius: 50px;
+    width: fit-content;
+  }
+  
+  .tour-duration i {
+    margin-right: 5px;
+    color: #ff4e00;
+  }
+  
+  /* Make the images more attractive */
+  .subject-img img {
+    transition: all 0.5s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .subject-card:hover .subject-img img {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .contact-options {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .contact-btn, .whatsapp-btn {
+      width: 100%;
+      justify-content: center;
+      margin-right: 0 !important;
+    }
+  }
+
+/* Rezervasyon Bölümü Stilleri */
+.reservation-section {
+  background-color: var(--bg-light);
+  position: relative;
+}
+
+.reservation-section::before {
+  content: "";
+  background: url('assets/images/pattern.png') repeat;
+  opacity: 0.05;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.reservation-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.reservation-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.reservation-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.reservation-card .card-header {
+  background: linear-gradient(135deg, var(--secondary-color), #ec9f05) !important;
+  padding: 18px 25px;
+  border-bottom: none;
+}
+
+.reservation-card .card-header h4 {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.reservation-form label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+.custom-select, 
+.reservation-form .form-control {
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--heading-color);
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.custom-select:focus, 
+.reservation-form .form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 22, 84, 0.15);
+}
+
+.custom-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3e%3cpath fill='%23FF1654' d='M2 0L0 2h4zm0 12L0 10h4z'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 8px 12px;
+  padding-right: 2rem;
+}
+
+.reservation-btn {
+  height: 50px;
+  background: linear-gradient(135deg, var(--secondary-color), #ec9f05);
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 22, 84, 0.3);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.reservation-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 22, 84, 0.4);
+}
+
+.custom-checkbox .form-check-input {
+  margin-top: 0.3em;
+}
+
+.form-check-label a {
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-check-label a:hover {
+  text-decoration: underline;
+}
+
+.reservation-info {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid var(--secondary-color);
+}
+
+/* Rezervasyon Avantajları */
+.reservation-advantages {
+  margin-top: 40px;
+}
+
+.advantage-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.advantage-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--secondary-color), #ec9f05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+.advantage-text h5 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.advantage-text p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: var(--font-color);
+}
+
+/* Şartlar ve Koşullar Modal */
+.modal-content {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--secondary-color), #ec9f05);
+  color: white;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.modal-footer .btn-primary {
+  background: linear-gradient(135deg, var(--secondary-color), #ec9f05);
+  border: none;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 991px) {
+  .reservation-card .card-header h4 {
+    font-size: 18px;
+  }
+  
+  .reservation-btn {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .advantage-item {
+    margin-bottom: 15px;
+  }
+  
+  .reservation-btn {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reservation-card .card-body {
+    padding: 20px 15px;
+  }
+  
+  .advantage-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .advantage-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+ /* Gece Modu (Dark Mode) Stil Ayarları */
+ body.dark-mode {
+    --bg-color: #1a1a1a;
+    --heading-color: #ffffff;
+    --font-color: #e0e0e0;
+    --border-color: #333333;
+    --card-bg: #2a2a2a;
+    --section-bg: #222222;
+    --footer-bg: #222222;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+  }
+
+  /* Header ve Navigasyon */
+  body.dark-mode #site-header {
+    background-color: rgba(32, 32, 32, 0.9);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  body.dark-mode .navbar-nav .nav-link {
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .navbar-nav .nav-link:hover,
+  body.dark-mode .navbar-nav .nav-item.active .nav-link {
+    color: #ff4e00;
+  }
+
+  body.dark-mode .navbar-toggler {
+    background-color: #333;
+  }
+
+  /* Kartlar ve Bölümler */
+  body.dark-mode .card,
+  body.dark-mode .subject-card-header {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+  }
+
+  body.dark-mode .area-box {
+    background-color: var(--card-bg);
+  }
+
+  body.dark-mode .hover-effect {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  body.dark-mode .hover-effect:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Başlıklar ve Metinler */
+  body.dark-mode h1, 
+  body.dark-mode h2, 
+  body.dark-mode h3, 
+  body.dark-mode h4, 
+  body.dark-mode h5, 
+  body.dark-mode h6 {
+    color: var(--heading-color);
+  }
+
+  body.dark-mode p {
+    color: var(--font-color);
+  }
+
+  body.dark-mode .hny-title {
+    color: var(--heading-color);
+  }
+
+  body.dark-mode .sub-title {
+    color: #ff4e00;
+  }
+
+  body.dark-mode a {
+    color: #4db8ff;
+  }
+
+  body.dark-mode a:hover {
+    color: #ff4e00;
+  }
+
+  /* Form Elemanları */
+  body.dark-mode input, 
+  body.dark-mode select, 
+  body.dark-mode textarea {
+    background-color: #333;
+    border-color: #555;
+    color: #fff;
+  }
+
+  body.dark-mode input:focus, 
+  body.dark-mode select:focus, 
+  body.dark-mode textarea:focus {
+    border-color: #ff4e00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 78, 0, 0.25);
+  }
+
+  body.dark-mode ::placeholder {
+    color: #aaa;
+  }
+
+  /* Butonlar */
+  body.dark-mode .btn-secondary {
+    background-color: #ff4e00;
+    border-color: #ff4e00;
+  }
+
+  body.dark-mode .btn-primary {
+    background-color: #4db8ff;
+    border-color: #4db8ff;
+  }
+
+  /* Rezervasyon Widget */
+  body.dark-mode .reservation-card {
+    background-color: var(--card-bg);
+  }
+
+  body.dark-mode .reservation-card .card-header {
+    background: linear-gradient(135deg, #ff4e00, #8B0000) !important;
+  }
+
+  body.dark-mode .form-check-label {
+    color: var(--font-color);
+  }
+
+  body.dark-mode .custom-select {
+    background-color: #333;
+    color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23ffffff' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+  }
+
+  /* Turlar Bölümü */
+  body.dark-mode .tour-duration {
+    background-color: #333;
+    color: #ddd;
+  }
+
+  body.dark-mode .tour-dates {
+    background-color: #333;
+    color: #ddd;
+  }
+
+  body.dark-mode .available-dates {
+    color: #bbb;
+  }
+
+  body.dark-mode .tour-price .price {
+    color: #ff6e3a;
+  }
+
+  body.dark-mode .tour-price .price-from, 
+  body.dark-mode .tour-price .per-person {
+    color: #aaa;
+  }
+
+  /* İletişim ve Yorum Bölümleri */
+  body.dark-mode .contact-info {
+    background-color: #2d2d2d;
+  }
+
+  body.dark-mode .contact-details h4 {
+    color: #fff;
+  }
+
+  body.dark-mode .contact-details p, 
+  body.dark-mode .contact-details a {
+    color: #ccc;
+  }
+
+  body.dark-mode .comment-item:hover {
+    background-color: #2a2a2a;
+  }
+
+  body.dark-mode .comment-reply {
+    background-color: #2a2a2a;
+  }
+
+  body.dark-mode .media .name {
+    color: #fff;
+  }
+
+  /* Search Section */
+  body.dark-mode .search-section {
+    background-color: #272727;
+    border-bottom: 1px solid #333;
+  }
+
+  /* Footer */
+  body.dark-mode .w3l-footer-16-main {
+    background-color: var(--footer-bg);
+  }
+
+  body.dark-mode .footer-gd-16 li a {
+    color: #bbb;
+  }
+
+  body.dark-mode .footer-gd-16 li a:hover {
+    color: #ff4e00;
+  }
+
+  body.dark-mode .below-section {
+    border-top: 1px solid #333;
+  }
+
+  /* Slider */
+  body.dark-mode #sliderTitle, body.dark-mode #sliderSubtitle {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Modal */
+  body.dark-mode .social-media-modal {
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  body.dark-mode .close-modal {
+    color: #ccc;
+  }
+
+  body.dark-mode .alert-success {
+    background-color: #1e4620;
+    color: #a4e9a4;
+    border-color: #2a6b2a;
+  }
+
+  body.dark-mode .alert-info {
+    background-color: #1b3a4a;
+    color: #93d4f0;
+    border-color: #2c6280;
+  }
+
+  /* WhatsApp Widget */
+  body.dark-mode #whatsAppWidget {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Stats Section */
+  body.dark-mode .counter {
+    color: #ff4e00;
+  }
+
+  body.dark-mode .stats_info h4 {
+    color: #fff;
+  }
+
+  /* Testimonials */
+  body.dark-mode .testimonial {
+    background-color: var(--card-bg);
+  }
+
+  body.dark-mode blockquote {
+    color: #ddd;
+  }
+
+  body.dark-mode .icon-quote span {
+    color: #ff4e00;
+  }
+
+  body.dark-mode .peopl h3 {
+    color: #fff;
+  }
+
+  body.dark-mode .peopl .indentity {
+    color: #aaa;
+  }
+
+  /* Scroll to Top Button */
+  body.dark-mode #movetop {
+    background-color: #ff4e00;
+    color: #fff;
+  }
   </style>
 </head>
 
@@ -389,6 +984,139 @@
     </div>
   </section>
   <!--/grids-->
+<!-- Rezervasyon Bölümü -->
+<!-- Rezervasyon Bölümü -->
+<section class="reservation-section py-5" id="reservation">
+  <div class="container">
+    <div class="title-content text-center mb-4">
+      <h6 class="sub-title">REZERVASYON</h6>
+      <h3 class="hny-title">Turunuzu Şimdi Ayırtın</h3>
+      <p class="mt-2">Hayalinizdeki tatil için yerinizi hemen ayırtın</p>
+    </div>
+    
+    <div class="card reservation-card">
+      <div class="card-header">
+        <h4 class="m-0 text-white"><i class="fas fa-calendar-check mr-2"></i> Online Rezervasyon</h4>
+      </div>
+      <div class="card-body p-4">
+        <form id="reservationForm" class="reservation-form">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="reservationTour">Tur Seçin</label>
+              <select class="form-control custom-select" id="reservationTour" required>
+                <option value="" selected disabled>Tur Seçin</option>
+                <option value="kapadokya">Kapadokya Masalsı Tur</option>
+                <option value="istanbul">İstanbul Tarihi Yarımada Turu</option>
+                <option value="trabzon">Trabzon Uzungöl Turu</option>
+                <option value="bolu">Bolu Doğa Turu</option>
+                <option value="diyarbakir">Diyarbakır Kültür Turu</option>
+                <option value="konya">Konya Mevlana Turu</option>
+              </select>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="reservationPersons">Kişi Sayısı</label>
+              <select class="form-control custom-select" id="reservationPersons" required>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="6+">6+</option>
+              </select>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="reservationDate">Tarih</label>
+              <input type="date" class="form-control" id="reservationDate" required>
+            </div>
+            <div class="col-md-3 mb-3 d-flex align-items-end">
+              <button type="button" id="reservationButton" class="btn btn-primary btn-block reservation-btn">
+                <i class="fas fa-calendar-check mr-2"></i> Rezervasyon Yap
+              </button>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-12">
+              <div class="form-check custom-checkbox">
+                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">
+                  <small>Rezervasyon <a href="#" data-toggle="modal" data-target="#termsModal" id="termsLink">şartlarını ve koşullarını</a> kabul ediyorum</small>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="reservation-info mt-3">
+            <p class="small text-muted mb-0">
+              <i class="fas fa-info-circle mr-1"></i> Rezervasyon yapmak için önce formu doldurun, sonra WhatsApp üzerinden onay alın.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Rezervasyon Avantajları -->
+    <div class="row reservation-advantages mt-4">
+      <div class="col-md-4 advantage-item mt-3">
+        <div class="advantage-icon">
+          <i class="fas fa-credit-card"></i>
+        </div>
+        <div class="advantage-text">
+          <h5>Güvenli Ödeme</h5>
+          <p>Kredi kartı veya nakit ödeme imkanı</p>
+        </div>
+      </div>
+      <div class="col-md-4 advantage-item mt-3">
+        <div class="advantage-icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="advantage-text">
+          <h5>Esnek İptal</h5>
+          <p>24 saat öncesine kadar ücretsiz iptal</p>
+        </div>
+      </div>
+      <div class="col-md-4 advantage-item mt-3">
+        <div class="advantage-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <div class="advantage-text">
+          <h5>7/24 Destek</h5>
+          <p>Her zaman yanınızdayız</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Şartlar ve Koşullar Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="termsModalLabel">Rezervasyon Şartları ve Koşulları</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>1. Rezervasyonlar, tur tarihinden en az 24 saat önce yapılmalıdır.</p>
+        <p>2. Ödemeler tur başlangıcından önce tamamlanmalıdır.</p>
+        <p>3. İptal koşulları:</p>
+        <ul>
+          <li>Tur tarihinden 72 saat öncesine kadar yapılan iptallerde tam iade yapılır.</li>
+          <li>24-72 saat arasında yapılan iptallerde %50 iade yapılır.</li>
+          <li>24 saatten az kala yapılan iptallerde iade yapılmaz.</li>
+        </ul>
+        <p>4. Asil Tur, program değişikliği yapma hakkını saklı tutar.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        <button type="button" class="btn btn-primary" id="acceptTermsBtn" data-dismiss="modal">Kabul Ediyorum</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <!-- Popüler Turlar Section with updated buttons instead of prices -->
 <section class="w3l-grids-3 py-5">
   <div class="container py-md-5">
@@ -1643,3 +2371,191 @@
     tourDate.value = `${year}-${month}-${day}`;
   });
   </script>
+ <script>
+ document.addEventListener('DOMContentLoaded', function() {
+  // Bugünün tarihini varsayılan olarak ayarla
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const dateInput = document.getElementById('reservationDate');
+  
+  if (dateInput) {
+    dateInput.value = `${year}-${month}-${day}`;
+    
+    // Minimum tarih olarak bugünü ayarla
+    dateInput.min = `${year}-${month}-${day}`;
+    
+    // Maksimum tarih olarak 6 ay sonrasını ayarla
+    const maxDate = new Date();
+    maxDate.setMonth(maxDate.getMonth() + 6);
+    const maxYear = maxDate.getFullYear();
+    const maxMonth = String(maxDate.getMonth() + 1).padStart(2, '0');
+    const maxDay = String(maxDate.getDate()).padStart(2, '0');
+    dateInput.max = `${maxYear}-${maxMonth}-${maxDay}`;
+  }
+  
+  // Modal kabul butonuna tıklandığında checkbox'u işaretle
+  const termsModal = document.getElementById('termsModal');
+  if (termsModal) {
+    const acceptButton = document.getElementById('acceptTermsBtn');
+    const termsCheck = document.getElementById('termsCheck');
+    
+    if (acceptButton && termsCheck) {
+      acceptButton.addEventListener('click', function() {
+        termsCheck.checked = true;
+        // Form uyarısını kaldır
+        const oldAlert = document.querySelector('.reservation-alert');
+        if (oldAlert) {
+          oldAlert.remove();
+        }
+      });
+    }
+    
+    // Şartlar linkine tıklandığında checkboxu temizleme
+    const termsLink = document.getElementById('termsLink');
+    if (termsLink) {
+      termsLink.addEventListener('click', function(e) {
+        // Şartlar penceresini açarken checkboxu işaretleme
+        // varsayılan olarak işaretli değil
+      });
+    }
+  }
+  
+  // Rezervasyon butonunu doğrudan dinle
+  const reservationButton = document.getElementById('reservationButton');
+  if (reservationButton) {
+    reservationButton.addEventListener('click', function() {
+      // Form seçilmiş mi kontrol et
+      const reservationForm = document.getElementById('reservationForm');
+      if (!reservationForm) {
+        console.error('Rezervasyon formu bulunamadı!');
+        return;
+      }
+      
+      // Form validasyonu
+      const tourSelect = document.getElementById('reservationTour');
+      const personsSelect = document.getElementById('reservationPersons');
+      const dateInput = document.getElementById('reservationDate');
+      const termsCheck = document.getElementById('termsCheck');
+      
+      if (!tourSelect || !personsSelect || !dateInput || !termsCheck) {
+        console.error('Form elemanlarından biri bulunamadı!');
+        return;
+      }
+      
+      // Form validasyonu ve uyarılar
+      if (tourSelect.value === "") {
+        showFormAlert('Lütfen bir tur seçin', 'warning');
+        tourSelect.focus();
+        return;
+      }
+      
+      if (!dateInput.value) {
+        showFormAlert('Lütfen bir tarih seçin', 'warning');
+        dateInput.focus();
+        return;
+      }
+      
+      if (!termsCheck.checked) {
+        showFormAlert('Lütfen şartları ve koşulları kabul edin', 'warning');
+        termsCheck.focus();
+        return;
+      }
+      
+      // Form verilerini al
+      const tour = tourSelect.options[tourSelect.selectedIndex].text;
+      const persons = personsSelect.value;
+      const date = dateInput.value;
+      
+      // Tarihi güzel formata çevir: GG/AA/YYYY
+      const formattedDate = formatDate(date);
+      
+      // WhatsApp mesajını oluştur
+      const message = `Merhaba, *${tour}* için ${formattedDate} tarihinde ${persons} kişilik rezervasyon yapmak istiyorum. Bilgi verebilir misiniz?`;
+      
+      // WhatsApp linkini oluştur
+      const whatsappLink = `https://api.whatsapp.com/send?phone=905365210670&text=${encodeURIComponent(message)}`;
+      
+      // Başarılı mesajı göster
+      showFormAlert('Rezervasyon talebiniz hazırlandı. WhatsApp\'a yönlendiriliyorsunuz...', 'success');
+      
+      // WhatsApp linkine yönlendir - kısa bir gecikme ile kullanıcı mesajı görebilsin
+      setTimeout(() => {
+        window.open(whatsappLink, '_blank');
+      }, 1500);
+    });
+  } else {
+    console.error('Rezervasyon butonu bulunamadı!');
+  }
+  
+  // Form uyarı mesajı gösterme fonksiyonu
+  function showFormAlert(message, type) {
+    // Eski uyarıyı kaldır
+    const oldAlert = document.querySelector('.reservation-alert');
+    if (oldAlert) {
+      oldAlert.remove();
+    }
+    
+    // Yeni uyarı oluştur
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${type} reservation-alert mt-3 animated fadeIn`;
+    alert.innerHTML = `
+      <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'} mr-2"></i>
+      ${message}
+    `;
+    
+    // Formu bulup altına uyarıyı ekle
+    const form = document.getElementById('reservationForm');
+    form.appendChild(alert);
+    
+    // Başarı mesajıysa 3 saniye sonra kaldır
+    if (type === 'success') {
+      setTimeout(() => {
+        alert.classList.add('fadeOut');
+        setTimeout(() => alert.remove(), 500);
+      }, 3000);
+    }
+  }
+  
+  // Tarihi formatlama fonksiyonu (YYYY-MM-DD -> DD/MM/YYYY)
+  function formatDate(dateString) {
+    const dateParts = dateString.split('-');
+    return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+  }
+  
+  // CSS animasyonları için stil ekle
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+    
+    .animated {
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+    }
+    
+    .fadeIn {
+      animation-name: fadeIn;
+    }
+    
+    .fadeOut {
+      animation-name: fadeOut;
+    }
+    
+    .reservation-alert {
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 0;
+    }
+  `;
+  document.head.appendChild(style);
+});
+ </script>
