@@ -227,6 +227,56 @@
       margin-right: 0 !important;
     }
   }
+  
+  .reservation-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .reservation-card .card-header {
+    background: linear-gradient(135deg, #ff4e00, #ec9f05) !important;
+    padding: 15px 20px;
+  }
+  
+  .reservation-form label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #495057;
+  }
+  
+  .custom-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 8px 10px;
+  }
+  
+  .reservation-form .btn-primary {
+    background: linear-gradient(135deg, #ff4e00, #ec9f05);
+    border: none;
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .reservation-form .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(236, 159, 5, 0.3);
+  }
+  
+  .custom-checkbox .form-check-input {
+    margin-top: 0.3em;
+  }
+  
+  .reservation-success {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   </style>
 </head>
 
@@ -389,6 +439,56 @@
     </div>
   </section>
   <!--/grids-->
+
+<!-- Rezervasyon Widget'ı form kısmı -->
+<form id="reservationForm" class="reservation-form">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="reservationTour">Tur Seçin</label>
+      <select class="form-control custom-select" id="reservationTour" required>
+        <option value="" selected disabled>Tur Seçin</option>
+        <option value="kapadokya">Kapadokya Masalsı Tur</option>
+        <option value="istanbul">İstanbul Tarihi Yarımada Turu</option>
+        <option value="trabzon">Trabzon Uzungöl Turu</option>
+        <option value="bolu">Bolu Doğa Turu</option>
+        <option value="diyarbakir">Diyarbakır Kültür Turu</option>
+        <option value="konya">Konya Mevlana Turu</option>
+      </select>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label for="reservationPersons">Kişi Sayısı</label>
+      <select class="form-control custom-select" id="reservationPersons" required>
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="6+">6+</option>
+      </select>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="reservationDate">Tarih</label>
+      <input type="date" class="form-control" id="reservationDate" required>
+    </div>
+    <div class="col-md-3 mb-3 d-flex align-items-end">
+      <!-- Buton tipini button olarak değiştirdik ve ID ekledik -->
+      <button type="button" id="reservationButton" class="btn btn-primary btn-block">
+        <i class="fas fa-calendar-check mr-2"></i> Rezervasyon Yap
+      </button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <div class="form-check custom-checkbox">
+        <input type="checkbox" class="form-check-input" id="termsCheck" required>
+        <label class="form-check-label" for="termsCheck">
+          <small>Rezervasyon şartlarını ve koşullarını kabul ediyorum</small>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
   <!-- Popüler Turlar Section with updated buttons instead of prices -->
 <section class="w3l-grids-3 py-5">
   <div class="container py-md-5">
@@ -1435,7 +1535,86 @@
     });
   });
 </script>
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Bugünün tarihini varsayılan olarak ayarla
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const dateInput = document.getElementById('reservationDate');
+    
+    if (dateInput) {
+      dateInput.value = `${year}-${month}-${day}`;
+    }
+    
+    // Rezervasyon butonunu doğrudan dinle
+    const reservationButton = document.getElementById('reservationButton');
+    if (reservationButton) {
+      reservationButton.addEventListener('click', function() {
+        // Form seçilmiş mi kontrol et
+        const reservationForm = document.getElementById('reservationForm');
+        if (!reservationForm) {
+          console.error('Rezervasyon formu bulunamadı!');
+          return;
+        }
+        
+        // Form validasyonu
+        const tourSelect = document.getElementById('reservationTour');
+        const personsSelect = document.getElementById('reservationPersons');
+        const dateInput = document.getElementById('reservationDate');
+        const termsCheck = document.getElementById('termsCheck');
+        
+        if (!tourSelect || !personsSelect || !dateInput || !termsCheck) {
+          console.error('Form elemanlarından biri bulunamadı!');
+          return;
+        }
+        
+        if (tourSelect.value === "") {
+          alert('Lütfen bir tur seçin');
+          return;
+        }
+        
+        if (!dateInput.value) {
+          alert('Lütfen bir tarih seçin');
+          return;
+        }
+        
+        if (!termsCheck.checked) {
+          alert('Lütfen şartları ve koşulları kabul edin');
+          return;
+        }
+        
+        // Form verilerini al
+        const tour = tourSelect.options[tourSelect.selectedIndex].text;
+        const persons = personsSelect.value;
+        const date = dateInput.value;
+        
+        // Tarihi güzel formata çevir: GG/AA/YYYY
+        const formattedDate = formatDate(date);
+        
+        // WhatsApp mesajını oluştur
+        const message = `Merhaba, *${tour}* için ${formattedDate} tarihinde ${persons} kişilik rezervasyon yapmak istiyorum. Bilgi verebilir misiniz?`;
+        
+        // WhatsApp linkini oluştur
+        const whatsappLink = `https://api.whatsapp.com/send?phone=905365210670&text=${encodeURIComponent(message)}`;
+        
+        console.log('WhatsApp linki oluşturuldu:', whatsappLink);
+        
+        // WhatsApp linkine yönlendir
+        window.open(whatsappLink, '_blank');
+      });
+    } else {
+      console.error('Rezervasyon butonu bulunamadı!');
+    }
+    
+    // Tarihi formatlama fonksiyonu (YYYY-MM-DD -> DD/MM/YYYY)
+    function formatDate(dateString) {
+      const dateParts = dateString.split('-');
+      return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+    }
+  });
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
