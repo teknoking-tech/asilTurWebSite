@@ -1,5 +1,6 @@
 /**
- * Asil Tur - Galeri sayfası JavaScript fonksiyonları
+ * Asil Tur - Grid Düzeltmeli Galeri JavaScript
+ * Güncellenmiş Dosya Sayıları (158 resim, 10 video)
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -44,107 +45,308 @@ document.addEventListener('DOMContentLoaded', function() {
     // Galeri konteyner ve yükleniyor göstergesi
     const galleryContainer = document.getElementById('gallery-items');
     const loadingIndicator = document.getElementById('loading-indicator');
+    const paginationContainer = document.getElementById('gallery-pagination');
+    const emptyState = document.querySelector('.gallery-empty');
     
-    // Masonry layout için değişken
-    let msnry;
+    // Galeri sabitleri
+    const ITEMS_PER_PAGE = 9; // Sayfa başına öğe sayısını daha az yaparak daha düzenli görünüm
+    const totalPhotos = 158; // asil19tur (1).jpg'den asil19tur (158).jpg'e kadar - GÜNCELLENDİ
+    const totalVideos = 10;  // asil19tur (1).mp4'ten asil19tur (10).mp4'e kadar
+    let currentPage = 1;
+    let totalPages = 0;
+    let currentFilter = 'all';
+    let allItems = [];
     
-    // Galeri öğelerini oluşturma fonksiyonu
-    function createGalleryItems() {
-      // Toplam fotoğraf ve video sayısı
-      const totalPhotos = 149; // asil19tur (1).jpg'den asil19tur (149).jpg'e kadar
-      const totalVideos = 10;  // asil19tur (1).mp4'ten asil19tur (10).mp4'e kadar
+    // Galeriyi başlat
+    function initGallery() {
+      // Tüm öğe verilerini hazırla
+      prepareGalleryItems();
       
-      // Fotoğrafları ekle
+      // Sayfalamayı oluştur
+      createPagination();
+      
+      // İlk sayfayı göster
+      displayGalleryPage(1);
+      
+      // Filtre butonlarını başlat
+      initFilterButtons();
+    }
+    
+    // Tüm galeri öğelerini hazırla
+    function prepareGalleryItems() {
+      // Resimleri diziye ekle
       for (let i = 1; i <= totalPhotos; i++) {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = 'col-lg-4 col-md-6 col-sm-6 gallery-item photo';
-        
-        galleryItem.innerHTML = `
-          <a href="assets/images/sirketResimleri/asil19tur (${i}).jpg" data-lightbox="asil-tur-gallery" data-title="Asil Tur Fotoğraf ${i}">
-            <img class="img-fluid lazy" src="assets/images/placeholder.jpg" data-src="assets/images/sirketResimleri/asil19tur (${i}).jpg" alt="Asil Tur Fotoğraf ${i}">
-            <div class="gallery-item-overlay">
-              <h5>Asil Tur - Fotoğraf ${i}</h5>
-            </div>
-          </a>
-        `;
-        
-        galleryContainer.appendChild(galleryItem);
+        allItems.push({
+          type: 'photo',
+          index: i,
+          src: `assets/images/sirketResimleri/asil19tur (${i}).jpg`,
+          title: `Asil Tur Fotoğraf ${i}`
+        });
       }
       
-      // Videoları ekle
+      // Videoları diziye ekle
       for (let i = 1; i <= totalVideos; i++) {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = 'col-lg-4 col-md-6 col-sm-6 gallery-item video';
-        
-        // Video önizleme için rastgele bir resim kullan
         const thumbIndex = Math.floor(Math.random() * totalPhotos) + 1;
+        allItems.push({
+          type: 'video',
+          index: i,
+          src: `assets/images/sirketResimleri/asil19tur (${i}).mp4`,
+          thumb: `assets/images/sirketResimleri/asil19tur (${thumbIndex}).jpg`,
+          title: `Asil Tur Video ${i}`
+        });
+      }
+      
+      // Tüm öğelere göre toplam sayfa sayısını hesapla
+      updateTotalPages();
+    }
+    
+    // Filtrelenmiş öğelere göre toplam sayfa sayısını güncelle
+    function updateTotalPages() {
+      const filteredItems = filterItems(currentFilter);
+      totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+      
+      if (filteredItems.length === 0) {
+        emptyState.classList.remove('d-none');
+      } else {
+        emptyState.classList.add('d-none');
+      }
+      
+      // Yeni toplam ile sayfalama oluştur
+      createPagination();
+    }
+    
+    // Türe göre öğeleri filtrele
+    function filterItems(filter) {
+      if (filter === 'all') {
+        return allItems;
+      } else {
+        return allItems.filter(item => item.type === filter);
+      }
+    }
+    
+    // Mevcut sayfa için galeri öğelerini göster
+    function displayGalleryPage(page) {
+      // Mevcut galeriyi temizle
+      galleryContainer.innerHTML = '';
+      
+      // Filtrelenmiş öğeleri al
+      const filteredItems = filterItems(currentFilter);
+      
+      // Mevcut sayfa için başlangıç ve bitiş indeksini hesapla
+      const startIndex = (page - 1) * ITEMS_PER_PAGE;
+      const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, filteredItems.length);
+      
+      // Mevcut sayfa için öğeleri al
+      const pageItems = filteredItems.slice(startIndex, endIndex);
+      
+      // Boş durum kontrolü
+      if (pageItems.length === 0) {
+        emptyState.classList.remove('d-none');
+      } else {
+        emptyState.classList.add('d-none');
+      }
+      
+      // Galeri öğelerini oluştur ve ekle
+      pageItems.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = `gallery-item ${item.type}`;
         
-        galleryItem.innerHTML = `
-          <div class="video-thumbnail" data-video="assets/images/sirketResimleri/asil19tur (${i}).mp4" data-index="${i}">
-            <img class="img-fluid lazy" src="assets/images/placeholder.jpg" data-src="assets/images/sirketResimleri/asil19tur (${thumbIndex}).jpg" alt="Asil Tur Video ${i}">
-            <div class="video-play-icon">
-              <i class="fa fa-play-circle"></i>
+        if (item.type === 'photo') {
+          galleryItem.innerHTML = `
+            <a href="${item.src}" data-lightbox="asil-tur-gallery" data-title="${item.title}">
+              <img class="img-fluid lazy" src="assets/images/placeholder.jpg" data-src="${item.src}" alt="${item.title}">
+              <div class="gallery-item-overlay">
+                <h5>${item.title}</h5>
+              </div>
+            </a>
+          `;
+        } else { // video
+          galleryItem.innerHTML = `
+            <div class="video-thumbnail" data-video="${item.src}" data-index="${item.index}">
+              <img class="img-fluid lazy" src="assets/images/placeholder.jpg" data-src="${item.thumb}" alt="${item.title}">
+              <div class="video-play-icon">
+                <i class="fa fa-play-circle"></i>
+              </div>
+              <div class="gallery-item-overlay">
+                <h5>${item.title}</h5>
+              </div>
             </div>
-            <div class="gallery-item-overlay">
-              <h5>Asil Tur - Video ${i}</h5>
-            </div>
-          </div>
-        `;
+          `;
+        }
         
         galleryContainer.appendChild(galleryItem);
-      }
+      });
+      
+      // Mevcut sayfayı güncelle
+      currentPage = page;
+      
+      // Aktif sayfalama butonunu güncelle
+      updateActivePaginationButton();
       
       // Yükleniyor göstergesini gizle
       loadingIndicator.style.display = 'none';
       
-      // Lazy loading başlat
+      // Lazy loading'i başlat
       initializeLazyLoading();
       
-      // Tüm resimlerin yüklenmesini bekle ve Masonry layout'u başlat
-      imagesLoaded(galleryContainer, function() {
-        msnry = new Masonry(galleryContainer, {
-          itemSelector: '.gallery-item',
-          columnWidth: '.gallery-item',
-          percentPosition: true
+      // Video dinleyicilerini ekle
+      attachVideoListeners();
+      
+      // İlk sayfa değilse galerinin üstüne kaydır
+      if (page > 1) {
+        const gallerySection = document.querySelector('.w3l-gallery');
+        gallerySection.scrollIntoView({behavior: 'smooth'});
+      }
+    }
+    
+    // Sayfalama butonlarını oluştur
+    function createPagination() {
+      paginationContainer.innerHTML = '';
+      
+      if (totalPages <= 1) {
+        paginationContainer.parentElement.classList.add('d-none');
+        return;
+      } else {
+        paginationContainer.parentElement.classList.remove('d-none');
+      }
+      
+      // Önceki buton
+      const prevButton = document.createElement('li');
+      prevButton.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+      prevButton.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+      prevButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+          displayGalleryPage(currentPage - 1);
+        }
+      });
+      paginationContainer.appendChild(prevButton);
+      
+      // Sayfa numarası butonları - Maksimum 5 sayfa göster
+      const totalVisible = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(totalVisible / 2));
+      let endPage = Math.min(totalPages, startPage + totalVisible - 1);
+      
+      // Başlangıç ve bitiş sayfalarını ayarla
+      if (endPage - startPage + 1 < totalVisible) {
+        startPage = Math.max(1, endPage - totalVisible + 1);
+      }
+      
+      // İlk sayfa gösterilmiyorsa ellipsis ekle
+      if (startPage > 1) {
+        const firstPageButton = document.createElement('li');
+        firstPageButton.className = 'page-item';
+        firstPageButton.innerHTML = `<a class="page-link" href="#">1</a>`;
+        firstPageButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          displayGalleryPage(1);
         });
+        paginationContainer.appendChild(firstPageButton);
         
-        // Video elemanlarını dinle
-        attachVideoListeners();
+        if (startPage > 2) {
+          const ellipsisStart = document.createElement('li');
+          ellipsisStart.className = 'page-item disabled';
+          ellipsisStart.innerHTML = `<a class="page-link" href="#">...</a>`;
+          paginationContainer.appendChild(ellipsisStart);
+        }
+      }
+      
+      // Sayfa numaralarını oluştur
+      for (let i = startPage; i <= endPage; i++) {
+        const pageButton = document.createElement('li');
+        pageButton.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        pageButton.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        pageButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          displayGalleryPage(i);
+        });
+        paginationContainer.appendChild(pageButton);
+      }
+      
+      // Son sayfa gösterilmiyorsa ellipsis ekle
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const ellipsisEnd = document.createElement('li');
+          ellipsisEnd.className = 'page-item disabled';
+          ellipsisEnd.innerHTML = `<a class="page-link" href="#">...</a>`;
+          paginationContainer.appendChild(ellipsisEnd);
+        }
+        
+        const lastPageButton = document.createElement('li');
+        lastPageButton.className = 'page-item';
+        lastPageButton.innerHTML = `<a class="page-link" href="#">${totalPages}</a>`;
+        lastPageButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          displayGalleryPage(totalPages);
+        });
+        paginationContainer.appendChild(lastPageButton);
+      }
+      
+      // Sonraki buton
+      const nextButton = document.createElement('li');
+      nextButton.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+      nextButton.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+      nextButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          displayGalleryPage(currentPage + 1);
+        }
+      });
+      paginationContainer.appendChild(nextButton);
+    }
+    
+    // Aktif sayfalama butonunu güncelle
+    function updateActivePaginationButton() {
+      const pageButtons = paginationContainer.querySelectorAll('.page-item');
+      pageButtons.forEach(button => {
+        const link = button.querySelector('.page-link');
+        if (link && link.textContent && parseInt(link.textContent) === currentPage) {
+          button.classList.add('active');
+        } else if (!link.getAttribute('aria-label')) {
+          button.classList.remove('active');
+        }
+      });
+      
+      // Önceki/sonraki butonların durumunu güncelle
+      const prevButton = paginationContainer.querySelector('.page-item:first-child');
+      const nextButton = paginationContainer.querySelector('.page-item:last-child');
+      
+      if (currentPage === 1) {
+        prevButton.classList.add('disabled');
+      } else {
+        prevButton.classList.remove('disabled');
+      }
+      
+      if (currentPage === totalPages) {
+        nextButton.classList.add('disabled');
+      } else {
+        nextButton.classList.remove('disabled');
+      }
+    }
+    
+    // Filtre butonlarını başlat
+    function initFilterButtons() {
+      const filterButtons = document.querySelectorAll('.btn-gallery-filter');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Aktif buton sınıfını güncelle
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filtre değerini al
+          const filterValue = this.getAttribute('data-filter');
+          currentFilter = filterValue;
+          
+          // Filtreye göre toplam sayfa sayısını güncelle
+          updateTotalPages();
+          
+          // Yeni filtre ile ilk sayfayı göster
+          displayGalleryPage(1);
+        });
       });
     }
     
-    // Galeri öğelerini oluştur
-    createGalleryItems();
-    
-    // Filtreleme işlevi
-    const filterButtons = document.querySelectorAll('.btn-gallery-filter');
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        // Aktif buton sınıfını değiştir
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-        
-        const filterValue = this.getAttribute('data-filter');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        galleryItems.forEach(item => {
-          if (filterValue === 'all') {
-            item.style.display = 'block';
-          } else if (item.classList.contains(filterValue)) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-        
-        // Layout'u güncelle
-        setTimeout(function() {
-          msnry.layout();
-        }, 300);
-      });
-    });
-    
-    // Lazy loading için
+    // Resimler için lazy loading
     function initializeLazyLoading() {
       const lazyImages = document.querySelectorAll('img.lazy');
       
@@ -154,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
               const lazyImage = entry.target;
               lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.add('loaded');
               lazyImage.classList.remove('lazy');
               lazyImageObserver.unobserve(lazyImage);
             }
@@ -164,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
           lazyImageObserver.observe(lazyImage);
         });
       } else {
-        // Fallback for browsers without IntersectionObserver support
+        // IntersectionObserver desteği olmayan tarayıcılar için fallback
         lazyLoad();
         window.addEventListener('scroll', throttle(lazyLoad, 200));
         window.addEventListener('resize', throttle(lazyLoad, 200));
@@ -177,12 +380,13 @@ document.addEventListener('DOMContentLoaded', function() {
       lazyImages.forEach(img => {
         if (img.getBoundingClientRect().top < window.innerHeight + 500) {
           img.src = img.dataset.src;
+          img.classList.add('loaded');
           img.classList.remove('lazy');
         }
       });
     }
     
-    // Video önizleme elemanlarını dinle
+    // Video önizleme elemanları için tıklama dinleyicileri
     function attachVideoListeners() {
       const videoThumbnails = document.querySelectorAll('.video-thumbnail');
       const modalVideo = document.querySelector('.modal-video');
@@ -220,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Throttle fonksiyonu (performans için)
+    // Performans için throttle fonksiyonu
     function throttle(func, delay) {
       let lastCall = 0;
       return function() {
@@ -240,28 +444,68 @@ document.addEventListener('DOMContentLoaded', function() {
       'albumLabel': "Fotoğraf %1 / %2",
       'fadeDuration': 300,
       'imageFadeDuration': 300,
-      'disableScrolling': true,
+      'disableScrolling': false,
       'alwaysShowNavOnTouchDevices': true,
       'showImageNumberLabel': true,
-      'positionFromTop': 100,
+      'positionFromTop': 80,
       'maxWidth': 1200,
-      'maxHeight': 800
+      'maxHeight': 800,
+      'fitImagesInViewport': true
     });
     
-    // Lightbox özelleştirme
+    // Geliştirilmiş lightbox kontrolleri
     document.addEventListener('click', function(e) {
       if (e.target.closest('a[data-lightbox]')) {
-        // Lightbox açıldığında butonları daha belirgin yap
+        // Lightbox butonlarını daha görünür yap
         setTimeout(() => {
           const prevBtn = document.querySelector('.lb-prev');
           const nextBtn = document.querySelector('.lb-next');
           const closeBtn = document.querySelector('.lb-close');
           
-          if (prevBtn) prevBtn.style.opacity = '1';
-          if (nextBtn) nextBtn.style.opacity = '1';
+          if (prevBtn) {
+            prevBtn.style.opacity = '1';
+            prevBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            prevBtn.style.borderRadius = '50%';
+            prevBtn.style.width = '50px';
+            prevBtn.style.height = '50px';
+          }
+          
+          if (nextBtn) {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            nextBtn.style.borderRadius = '50%';
+            nextBtn.style.width = '50px';
+            nextBtn.style.height = '50px';
+          }
+          
           if (closeBtn) {
             closeBtn.style.opacity = '1';
             closeBtn.style.color = '#e30713';
+            closeBtn.style.zIndex = '9999';
+            
+            // Kapatma butonunu daha belirgin yap
+            const closeBtnContainer = document.querySelector('.lb-closeContainer');
+            if (closeBtnContainer) {
+              closeBtnContainer.style.position = 'absolute';
+              closeBtnContainer.style.top = '10px';
+              closeBtnContainer.style.right = '10px';
+              closeBtnContainer.style.zIndex = '9999';
+              closeBtnContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+              closeBtnContainer.style.padding = '5px 10px';
+              closeBtnContainer.style.borderRadius = '20px';
+              
+              // Kapatma butonunun yanına metin ekle
+              if (!closeBtnContainer.querySelector('.close-text')) {
+                const closeText = document.createElement('span');
+                closeText.className = 'close-text';
+                closeText.textContent = 'Kapat';
+                closeText.style.color = '#fff';
+                closeText.style.marginRight = '5px';
+                closeText.style.fontWeight = 'bold';
+                closeText.style.fontSize = '14px';
+                closeBtnContainer.prepend(closeText);
+              }
+            }
           }
         }, 100);
       }
@@ -271,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollToTopButton = document.getElementById('scrollToTop');
     
     window.addEventListener('scroll', function() {
-      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         scrollToTopButton.classList.add('visible');
       } else {
         scrollToTopButton.classList.remove('visible');
@@ -284,4 +528,8 @@ document.addEventListener('DOMContentLoaded', function() {
         behavior: 'smooth'
       });
     });
+    
+    // Galeriyi başlat
+    initGallery();
   });
+  

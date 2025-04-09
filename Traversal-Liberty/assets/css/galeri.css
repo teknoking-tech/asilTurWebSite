@@ -1,4 +1,4 @@
-/* Galeri Öğeleri */
+/* Improved Gallery CSS */
 .gallery-item {
     margin-bottom: 30px;
     transition: all 0.4s ease;
@@ -7,6 +7,7 @@
     position: relative;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     transform: translateY(0);
+    height: 100%; /* Ensure consistent heights */
   }
   
   .gallery-item:hover {
@@ -54,12 +55,13 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
   
-  /* Video Thumbnail Stil */
+  /* Video Thumbnail Style */
   .video-thumbnail {
     position: relative;
     cursor: pointer;
     overflow: hidden;
     border-radius: 15px;
+    height: 100%;
   }
   
   .video-play-icon {
@@ -77,7 +79,7 @@
   
   .video-thumbnail:hover .video-play-icon {
     transform: translate(-50%, -50%) scale(1.2);
-    color: #e30713; /* Asil Tur kırmızısı */
+    color: #e30713;
     text-shadow: 0 0 30px rgba(227, 7, 19, 0.8);
     opacity: 1;
   }
@@ -98,90 +100,116 @@
     background: linear-gradient(45deg, rgba(227, 7, 19, 0.3), rgba(0,0,0,0.1));
   }
   
-  /* Galeri Bölüm Stilleri */
-  .gallery-section {
-    margin-bottom: 50px;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(227, 7, 19, 0.1);
-  }
-  
-  .dark-mode .gallery-section {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(227, 7, 19, 0.2);
-  }
-  
-  .section-header {
+  /* Filter Buttons */
+  .gallery-filters {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(227, 7, 19, 0.2);
-  }
-  
-  .section-title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #e30713;
-    margin: 0;
-  }
-  
-  .section-controls {
-    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 10px;
+    margin-bottom: 30px;
   }
   
   .btn-gallery-filter {
     background: rgba(227, 7, 19, 0.8);
     color: white;
     border: none;
-    border-radius: 20px;
-    padding: 6px 15px;
-    font-size: 14px;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 16px;
     font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
   .btn-gallery-filter:hover,
   .btn-gallery-filter.active {
     background: #e30713;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(227, 7, 19, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(227, 7, 19, 0.3);
   }
   
-  .btn-gallery-close {
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 6px 15px;
-    font-size: 14px;
-    font-weight: 600;
+  /* Loading indicator */
+  #loading-indicator {
+    text-align: center;
+    padding: 30px;
+    margin: 20px 0;
+  }
+  
+  #loading-indicator .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #e30713;
+  }
+  
+  /* Pagination */
+  .gallery-pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px;
+  }
+  
+  .pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+  }
+  
+  .page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+  }
+  
+  .page-item:last-child .page-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+  }
+  
+  .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #e30713;
+    border-color: #e30713;
+  }
+  
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+  }
+  
+  .page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #e30713;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
     transition: all 0.3s ease;
-    margin-left: 10px;
   }
   
-  .btn-gallery-close:hover {
-    background: #222;
+  .page-link:hover {
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+    background-color: #e30713;
+    border-color: #e30713;
     transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(227, 7, 19, 0.2);
   }
   
-  .dark-mode .btn-gallery-close {
-    background: #444;
+  .page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(227, 7, 19, 0.25);
   }
   
-  .dark-mode .btn-gallery-close:hover {
-    background: #555;
-  }
-  
-  /* Yukarı Kaydır Butonu */
+  /* Scroll to top button */
   .scroll-to-top-container {
     position: fixed;
     bottom: 30px;
@@ -220,108 +248,102 @@
     font-size: 20px;
   }
   
-  /* Kategori Kartları Stilleri */
-  .gallery-category {
-    margin-bottom: 25px;
+  /* Enhanced Lightbox styles */
+  .lb-outerContainer {
+    border-radius: 15px !important;
+    background-color: #000 !important;
+    padding: 10px !important;
   }
   
-  .category-card {
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s ease;
-    background: #fff;
-    position: relative;
+  .lb-container {
+    padding: 0 !important;
   }
   
-  .dark-mode .category-card {
-    background: #222;
+  .lb-image {
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
   }
   
-  .category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  .lb-nav a.lb-prev,
+  .lb-nav a.lb-next {
+    opacity: 0.7 !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-size: 25px !important;
+    background-position: center !important;
+    transition: all 0.3s ease !important;
   }
   
-  .category-image {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
+  .lb-nav a.lb-prev:hover,
+  .lb-nav a.lb-next:hover {
+    opacity: 1 !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
   }
   
-  .category-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+  .lb-nav a.lb-prev {
+    left: 15px !important;
   }
   
-  .category-card:hover .category-image img {
-    transform: scale(1.05);
+  .lb-nav a.lb-next {
+    right: 15px !important;
   }
   
-  .category-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6), transparent);
-    color: white;
+  .lb-data {
+    padding: 10px 10px 5px !important;
   }
   
-  .category-overlay h4 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    font-weight: 600;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  .lb-data .lb-details {
+    width: 80% !important;
+    text-align: left !important;
   }
   
-  .category-overlay p {
-    margin: 0;
+  .lb-data .lb-caption {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    text-shadow: 1px 1px 3px black !important;
   }
   
-  .category-overlay .badge {
-    font-size: 12px;
-    padding: 5px 10px;
-    margin-right: 5px;
-    background: rgba(255, 255, 255, 0.8);
-    color: #333;
+  .lb-data .lb-number {
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    padding-top: 5px !important;
   }
   
-  .category-footer {
-    padding: 15px;
-    text-align: center;
+  .lb-dataContainer {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+    padding-bottom: 10px !important;
+    background-color: #000 !important;
   }
   
-  .btn-gallery-toggle {
-    background: #e30713;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    padding: 8px 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  .lb-closeContainer {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    padding: 5px 10px !important;
+    border-radius: 20px !important;
+    z-index: 9999 !important;
   }
   
-  .btn-gallery-toggle:hover {
-    background: #d10611;
-    box-shadow: 0 5px 15px rgba(227, 7, 19, 0.3);
+  .lb-close {
+    width: 30px !important;
+    height: 30px !important;
+    background-size: contain !important;
+    background-color: #e30713 !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    float: right !important;
+    margin-left: 5px !important;
   }
   
-  .btn-gallery-toggle i {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-  }
-  
-  .btn-gallery-toggle.active i {
-    transform: rotate(180deg);
-  }
-  
-  /* Modal Video */
+  /* Video Modal */
   .modal-content {
     background-color: #111 !important;
     border-radius: 15px !important;
@@ -394,157 +416,210 @@
     box-shadow: 0 5px 15px rgba(227, 7, 19, 0.3) !important;
   }
   
-  /* Lightbox Özelleştirme */
-  .lb-outerContainer {
-    border-radius: 15px !important;
-    background-color: #000 !important;
-    padding: 10px !important;
-  }
-  
-  .lb-container {
-    padding: 0 !important;
-  }
-  
-  .lb-image {
-    border: none !important;
-    border-radius: 10px !important;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
-  }
-  
-  .lb-nav a.lb-prev,
-  .lb-nav a.lb-next {
-    opacity: 1 !important;
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    background-size: 25px !important;
-    background-position: center !important;
-  }
-  
-  .lb-nav a.lb-prev {
-    left: 15px !important;
-  }
-  
-  .lb-nav a.lb-next {
-    right: 15px !important;
-  }
-  
-  .lb-data {
-    padding: 10px 10px 5px !important;
-  }
-  
-  .lb-data .lb-details {
-    width: 80% !important;
-    text-align: left !important;
-  }
-  
-  .lb-data .lb-caption {
-    font-size: 18px !important;
-    font-weight: 600 !important;
-    color: white !important;
-    text-shadow: 1px 1px 3px black !important;
-  }
-  
-  .lb-data .lb-number {
-    font-size: 14px !important;
-    color: rgba(255, 255, 255, 0.7) !important;
-    padding-top: 5px !important;
-  }
-  
-  .lb-dataContainer {
-    border-bottom-left-radius: 15px !important;
-    border-bottom-right-radius: 15px !important;
-    padding-bottom: 10px !important;
-    background-color: #000 !important;
-  }
-  
-  .lb-closeContainer {
-    position: absolute !important;
-    top: 15px !important;
-    right: 15px !important;
-  }
-  
-  .lb-close {
-    width: 30px !important;
-    height: 30px !important;
-    background-size: contain !important;
-    background-color: #e30713 !important;
-    border-radius: 50% !important;
-    opacity: 1 !important;
-  }
-  
-  /* Yükleniyor İndikatörü */
-  .spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    vertical-align: text-bottom;
-    border: 0.25em solid currentColor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    animation: spinner-border .75s linear infinite;
-  }
-  
-  @keyframes spinner-border {
-    to { transform: rotate(360deg); }
-  }
-  
-  /* Placeholder Image */
+  /* Lazy loading effect */
   img.lazy {
     filter: blur(5px);
-    transition: filter 0.3s ease;
+    transition: filter 0.5s ease;
   }
   
   img.lazy.loaded {
     filter: blur(0);
   }
   
-  /* Dark Mode Compatibility */
-  .dark-mode .category-card {
-    background: #222;
+  /* Empty state */
+  .gallery-empty {
+    text-align: center;
+    padding: 50px 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin: 30px 0;
   }
   
-  .dark-mode .section-title {
+  .gallery-empty h4 {
+    color: #e30713;
+    margin-bottom: 15px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    .gallery-filters {
+      gap: 5px;
+    }
+    
+    .btn-gallery-filter {
+      padding: 6px 15px;
+      font-size: 14px;
+    }
+    
+    .gallery-item img, 
+    .gallery-item video {
+      height: 200px;
+    }
+    
+    .gallery-pagination-container {
+      margin-top: 20px;
+    }
+    
+    .page-link {
+      padding: .4rem .6rem;
+      font-size: 14px;
+    }
+  }
+  
+  /* Dark mode compatibility */
+  .dark-mode .page-link {
+    background-color: #222;
+    border-color: #444;
     color: #ff3a45;
   }
   
-  .dark-mode .btn-gallery-filter {
-    background: rgba(255, 58, 69, 0.8);
+  .dark-mode .page-item.active .page-link {
+    background-color: #ff3a45;
+    border-color: #ff3a45;
+    color: #fff;
   }
   
-  .dark-mode .btn-gallery-filter:hover,
-  .dark-mode .btn-gallery-filter.active {
-    background: #ff3a45;
+  .dark-mode .page-link:hover {
+    background-color: #ff3a45;
+    border-color: #ff3a45;
+    color: #fff;
   }
   
-  .dark-mode .btn-gallery-toggle {
-    background: #ff3a45;
+  .dark-mode .gallery-empty {
+    background-color: rgba(0, 0, 0, 0.2);
   }
   
-  .dark-mode .btn-gallery-toggle:hover {
-    background: #ff5c65;
+  .dark-mode .gallery-empty h4 {
+    color: #ff3a45;
   }
   
   .dark-mode .scroll-to-top {
     background-color: #ff3a45;
   }
   
-  .dark-mode .modal-header .close:hover {
-    color: #ff3a45 !important;
-  }
-  
   .dark-mode .lb-close {
     background-color: #ff3a45 !important;
   }
   
-  .dark-mode .video-thumbnail:hover .video-play-icon {
-    color: #ff3a45;
-    text-shadow: 0 0 30px rgba(255, 58, 69, 0.8);
+  .dark-mode .modal-header .close:hover {
+    color: #ff3a45 !important;
   }
   
-  .dark-mode .video-thumbnail:hover::after {
-    background: linear-gradient(45deg, rgba(255, 58, 69, 0.3), rgba(0,0,0,0.1));
+  .dark-mode .modal-footer .btn-secondary {
+    background-color: #ff3a45 !important;
   }
+  
+  .dark-mode .modal-footer .btn-secondary:hover {
+    background-color: #ff5c65 !important;
+  }
+  /* Galeri Grid Düzeltmeleri */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  /* Mobil için daha küçük grid */
+  @media (max-width: 991px) {
+    .gallery-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .gallery-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  
+  /* Galeri Öğeleri - Sabit Boyut */
+  .gallery-item {
+    margin-bottom: 0 !important; /* Önceki margin değerini sıfırla */
+    transition: all 0.4s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gallery-item a {
+    display: block;
+    height: 100%;
+    position: relative;
+  }
+  
+  .gallery-item img, 
+  .gallery-item video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Video thumbnail aynı yükseklikte olması için */
+  .video-thumbnail {
+    height: 250px;
+  }
+  
+  /* Masonry kullanmak yerine grid kullanacağız */
+  #gallery-items {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  @media (max-width: 991px) {
+    #gallery-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 575px) {
+    #gallery-items {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Sayfalama butonları arasında daha fazla boşluk */
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  .page-link {
+    border-radius: 5px;
+  }
+  
+  /* Lightbox düzeltmeleri */
+  .lb-outerContainer, .lb-dataContainer {
+    width: 100% !important;
+    max-width: 1000px !important;
+  }
+  
+  .lb-image {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Yükleniyor göstergesi merkeze */
+  #loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+  }
+  
+  /* Eşit yükseklik için düzeltme */
+  .gallery-item, .video-thumbnail, .gallery-item a {
+    aspect-ratio: 4/3;
+    max-height: 300px;
+  }
+  
