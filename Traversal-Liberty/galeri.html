@@ -149,186 +149,26 @@
   <section class="w3l-gallery py-5">
     <div class="container py-lg-5 py-md-4 py-2">
       <div class="title-content text-center mb-5">
-        <h3 class="hny-title">Tur Anılarımız</h3>
+        <h3 class="hny-title">Asil Tur Galerisi</h3>
         <p class="mt-2">Asil Tur ile gerçekleştirdiğimiz unutulmaz anılarımızdan kareler</p>
       </div>
       
-      <div class="gallery-categories mb-5">
-        <div class="row">
-          <!-- Kategori 1: Karadeniz Turu -->
-          <div class="col-lg-4 col-md-6 gallery-category mb-4">
-            <div class="category-card" data-category="karadeniz">
-              <div class="category-image">
-                <img src="assets/images/g1.jpg" alt="Karadeniz Turu" class="img-fluid">
-                <div class="category-overlay">
-                  <h4>Karadeniz Turu</h4>
-                  <p><span class="badge badge-light">42 Fotoğraf</span> <span class="badge badge-light">3 Video</span></p>
-                </div>
-              </div>
-              <div class="category-footer">
-                <button class="btn btn-gallery-toggle" onclick="toggleGallerySection('karadeniz')">Göster <i class="fa fa-angle-down"></i></button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Kategori 2: Kapadokya Turu -->
-          <div class="col-lg-4 col-md-6 gallery-category mb-4">
-            <div class="category-card" data-category="kapadokya">
-              <div class="category-image">
-                <img src="assets/images/g2.jpg" alt="Kapadokya Turu" class="img-fluid">
-                <div class="category-overlay">
-                  <h4>Kapadokya Turu</h4>
-                  <p><span class="badge badge-light">35 Fotoğraf</span> <span class="badge badge-light">2 Video</span></p>
-                </div>
-              </div>
-              <div class="category-footer">
-                <button class="btn btn-gallery-toggle" onclick="toggleGallerySection('kapadokya')">Göster <i class="fa fa-angle-down"></i></button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Kategori 3: Ege Turu -->
-          <div class="col-lg-4 col-md-6 gallery-category mb-4">
-            <div class="category-card" data-category="ege">
-              <div class="category-image">
-                <img src="assets/images/g3.jpg" alt="Ege Turu" class="img-fluid">
-                <div class="category-overlay">
-                  <h4>Ege Turu</h4>
-                  <p><span class="badge badge-light">30 Fotoğraf</span> <span class="badge badge-light">2 Video</span></p>
-                </div>
-              </div>
-              <div class="category-footer">
-                <button class="btn btn-gallery-toggle" onclick="toggleGallerySection('ege')">Göster <i class="fa fa-angle-down"></i></button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Kategori 4: Doğu Anadolu Turu -->
-          <div class="col-lg-4 col-md-6 gallery-category mb-4">
-            <div class="category-card" data-category="dogu">
-              <div class="category-image">
-                <img src="assets/images/g4.jpg" alt="Doğu Anadolu Turu" class="img-fluid">
-                <div class="category-overlay">
-                  <h4>Doğu Anadolu Turu</h4>
-                  <p><span class="badge badge-light">28 Fotoğraf</span> <span class="badge badge-light">1 Video</span></p>
-                </div>
-              </div>
-              <div class="category-footer">
-                <button class="btn btn-gallery-toggle" onclick="toggleGallerySection('dogu')">Göster <i class="fa fa-angle-down"></i></button>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Kategori 5: Yurt Dışı Turları -->
-          <div class="col-lg-4 col-md-6 gallery-category mb-4">
-            <div class="category-card" data-category="yurtdisi">
-              <div class="category-image">
-                <img src="assets/images/g5.jpg" alt="Yurt Dışı Turları" class="img-fluid">
-                <div class="category-overlay">
-                  <h4>Yurt Dışı Turları</h4>
-                  <p><span class="badge badge-light">15 Fotoğraf</span> <span class="badge badge-light">1 Video</span></p>
-                </div>
-              </div>
-              <div class="category-footer">
-                <button class="btn btn-gallery-toggle" onclick="toggleGallerySection('yurtdisi')">Göster <i class="fa fa-angle-down"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Filtreler -->
+      <div class="gallery-filters text-center mb-5">
+        <button class="btn btn-gallery-filter active" data-filter="all">Tümü</button>
+        <button class="btn btn-gallery-filter" data-filter="photo">Fotoğraflar</button>
+        <button class="btn btn-gallery-filter" data-filter="video">Videolar</button>
       </div>
       
-      <!-- Galeri Bölümleri - Her kategori için ayrı galeri -->
-      <div class="gallery-sections">
-        <!-- Karadeniz Turu Galerisi -->
-        <div id="karadeniz-gallery" class="gallery-section" style="display: none;">
-          <div class="section-header">
-            <h3 class="section-title">Karadeniz Turu Fotoğrafları</h3>
-            <div class="section-controls">
-              <button class="btn btn-gallery-filter active" data-section="karadeniz" data-filter="all">Tümü</button>
-              <button class="btn btn-gallery-filter" data-section="karadeniz" data-filter="photo">Fotoğraflar</button>
-              <button class="btn btn-gallery-filter" data-section="karadeniz" data-filter="video">Videolar</button>
-              <button class="btn btn-gallery-close" onclick="closeGallerySection('karadeniz')"><i class="fa fa-times"></i> Kapat</button>
-            </div>
-          </div>
-          <div class="row gallery-container" id="karadeniz-container">
-            <!-- Burası JS ile doldurulacak -->
-          </div>
-        </div>
-        
-        <!-- Kapadokya Turu Galerisi -->
-        <div id="kapadokya-gallery" class="gallery-section" style="display: none;">
-          <div class="section-header">
-            <h3 class="section-title">Kapadokya Turu Fotoğrafları</h3>
-            <div class="section-controls">
-              <button class="btn btn-gallery-filter active" data-section="kapadokya" data-filter="all">Tümü</button>
-              <button class="btn btn-gallery-filter" data-section="kapadokya" data-filter="photo">Fotoğraflar</button>
-              <button class="btn btn-gallery-filter" data-section="kapadokya" data-filter="video">Videolar</button>
-              <button class="btn btn-gallery-close" onclick="closeGallerySection('kapadokya')"><i class="fa fa-times"></i> Kapat</button>
-            </div>
-          </div>
-          <div class="row gallery-container" id="kapadokya-container">
-            <!-- Burası JS ile doldurulacak -->
-          </div>
-        </div>
-        
-        <!-- Ege Turu Galerisi -->
-        <div id="ege-gallery" class="gallery-section" style="display: none;">
-          <div class="section-header">
-            <h3 class="section-title">Ege Turu Fotoğrafları</h3>
-            <div class="section-controls">
-              <button class="btn btn-gallery-filter active" data-section="ege" data-filter="all">Tümü</button>
-              <button class="btn btn-gallery-filter" data-section="ege" data-filter="photo">Fotoğraflar</button>
-              <button class="btn btn-gallery-filter" data-section="ege" data-filter="video">Videolar</button>
-              <button class="btn btn-gallery-close" onclick="closeGallerySection('ege')"><i class="fa fa-times"></i> Kapat</button>
-            </div>
-          </div>
-          <div class="row gallery-container" id="ege-container">
-            <!-- Burası JS ile doldurulacak -->
-          </div>
-        </div>
-        
-        <!-- Doğu Anadolu Turu Galerisi -->
-        <div id="dogu-gallery" class="gallery-section" style="display: none;">
-          <div class="section-header">
-            <h3 class="section-title">Doğu Anadolu Turu Fotoğrafları</h3>
-            <div class="section-controls">
-              <button class="btn btn-gallery-filter active" data-section="dogu" data-filter="all">Tümü</button>
-              <button class="btn btn-gallery-filter" data-section="dogu" data-filter="photo">Fotoğraflar</button>
-              <button class="btn btn-gallery-filter" data-section="dogu" data-filter="video">Videolar</button>
-              <button class="btn btn-gallery-close" onclick="closeGallerySection('dogu')"><i class="fa fa-times"></i> Kapat</button>
-            </div>
-          </div>
-          <div class="row gallery-container" id="dogu-container">
-            <!-- Burası JS ile doldurulacak -->
-          </div>
-        </div>
-        
-        <!-- Yurt Dışı Turları Galerisi -->
-        <div id="yurtdisi-gallery" class="gallery-section" style="display: none;">
-          <div class="section-header">
-            <h3 class="section-title">Yurt Dışı Turları Fotoğrafları</h3>
-            <div class="section-controls">
-              <button class="btn btn-gallery-filter active" data-section="yurtdisi" data-filter="all">Tümü</button>
-              <button class="btn btn-gallery-filter" data-section="yurtdisi" data-filter="photo">Fotoğraflar</button>
-              <button class="btn btn-gallery-filter" data-section="yurtdisi" data-filter="video">Videolar</button>
-              <button class="btn btn-gallery-close" onclick="closeGallerySection('yurtdisi')"><i class="fa fa-times"></i> Kapat</button>
-            </div>
-          </div>
-          <div class="row gallery-container" id="yurtdisi-container">
-            <!-- Burası JS ile doldurulacak -->
-          </div>
-        </div>
+      <!-- Yükleniyor göstergesi -->
+      <div id="loading-indicator" class="text-center">
+        <div class="spinner-border text-danger" role="status"></div>
+        <p>Galeri yükleniyor...</p>
       </div>
       
-      <div class="text-center mt-5 gallery-pagination-container" style="display:none;">
-        <div class="pagination-wrapper">
-          <ul class="page-pagination">
-            <li><span aria-current="page" class="page-numbers current">1</span></li>
-            <li><a class="page-numbers" href="#page-2">2</a></li>
-            <li><a class="page-numbers" href="#page-3">3</a></li>
-            <li><a class="next" href="#next-page"><span class="fa fa-angle-right"></span></a></li>
-          </ul>
-        </div>
+      <!-- Galeri Container -->
+      <div class="row gallery-container" id="gallery-items">
+        <!-- Galeri öğeleri JavaScript tarafından yüklenecek -->
       </div>
       
       <!-- Video Modal -->
@@ -514,8 +354,6 @@
       });
     });
   </script>
-  <script src="assets/js/galeri.js"></script>
   <!--//MENU-JS-->
 </body>
-
 </html>
