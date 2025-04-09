@@ -623,3 +623,231 @@
     max-height: 300px;
   }
   
+
+  /* Dark Mode Compatibility Improvements */
+
+/* Base dark mode styles */
+.dark-mode {
+    background-color: #121212 !important;
+    color: #f0f0f0 !important;
+  }
+  
+  /* Header and navigation */
+  .dark-mode #site-header {
+    background-color: #1a1a1a !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .dark-mode .navbar-expand-lg .navbar-nav .nav-link {
+    color: #f0f0f0 !important;
+  }
+  
+  .dark-mode .navbar-expand-lg .navbar-nav .nav-item.active .nav-link {
+    color: #e30713 !important;
+  }
+  
+  .dark-mode .navbar-toggler {
+    background-color: #e30713 !important;
+  }
+  
+  /* Breadcrumbs */
+  .dark-mode .breadcrumb-bg {
+    background-color: #262626 !important;
+  }
+  
+  .dark-mode .title {
+    color: #f0f0f0 !important;
+  }
+  
+  .dark-mode .breadcrumbs-custom-path a,
+  .dark-mode .breadcrumbs-custom-path span {
+    color: #f0f0f0 !important;
+  }
+  
+  /* Gallery section */
+  .dark-mode .w3l-gallery {
+    background-color: #121212 !important;
+  }
+  
+  .dark-mode .hny-title,
+  .dark-mode .w3l-gallery p {
+    color: #f0f0f0 !important;
+  }
+  
+  /* Gallery item styling */
+  .dark-mode .gallery-item {
+    background-color: #1e1e1e !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .dark-mode .gallery-item:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  .dark-mode .gallery-empty {
+    background-color: rgba(30, 30, 30, 0.5) !important;
+  }
+  
+  /* Pagination styling */
+  .dark-mode .page-link {
+    background-color: #1e1e1e !important;
+    border-color: #444 !important; 
+    color: #ff3a45 !important;
+  }
+  
+  .dark-mode .page-item.active .page-link {
+    background-color: #e30713 !important;
+    border-color: #e30713 !important;
+    color: #fff !important;
+  }
+  
+  .dark-mode .page-item.disabled .page-link {
+    color: #757575 !important;
+    background-color: #1a1a1a !important;
+    border-color: #444 !important;
+  }
+  
+  .dark-mode .page-link:hover {
+    background-color: #e30713 !important;
+    border-color: #e30713 !important;
+    color: #fff !important;
+  }
+  
+  /* Footer styling */
+  .dark-mode footer {
+    background-color: #1a1a1a !important;
+  }
+  
+  .dark-mode .w3l-footer {
+    background-color: #1a1a1a !important;
+  }
+  
+  .dark-mode .w3l-footer h3,
+  .dark-mode .end-column h4 {
+    color: #f0f0f0 !important;
+  }
+  
+  .dark-mode .footer-gd-16 li a {
+    color: #bdbdbd !important;
+  }
+  
+  .dark-mode .footer-gd-16 li a:hover {
+    color: #e30713 !important;
+  }
+  
+  .dark-mode .below-section {
+    border-top: 1px solid #333 !important;
+  }
+  
+  .dark-mode .below-section p {
+    color: #bdbdbd !important;
+  }
+  
+  /* Form elements */
+  .dark-mode input[type="email"] {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border: 1px solid #444 !important;
+  }
+  
+  .dark-mode input[type="email"]::placeholder {
+    color: #aaa !important;
+  }
+  
+  .dark-mode button[type="submit"] {
+    background-color: #e30713 !important;
+    color: #f0f0f0 !important;
+  }
+  
+  /* Modal styling */
+  .dark-mode .modal-content {
+    background-color: #1a1a1a !important;
+  }
+  
+  .dark-mode .modal-header,
+  .dark-mode .modal-footer {
+    border-color: #333 !important;
+  }
+  
+  .dark-mode .modal-title {
+    color: #f0f0f0 !important;
+  }
+  
+  /* Gallery filters */
+  .dark-mode .btn-gallery-filter {
+    background: rgba(227, 7, 19, 0.6) !important;
+  }
+  
+  .dark-mode .btn-gallery-filter:hover,
+  .dark-mode .btn-gallery-filter.active {
+    background: #e30713 !important;
+  }
+  
+  /* Loading indicator */
+  .dark-mode #loading-indicator p {
+    color: #f0f0f0 !important;
+  }
+  
+  /* Override any backgrounds */
+  .dark-mode .w3l-footer-16-main,
+  .dark-mode .w3l-footer-16-main .end-column {
+    background-color: #1a1a1a !important;
+  }
+  
+  /* Social icons */
+  .dark-mode .social-icons a,
+  .dark-mode .social li a {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+  }
+  
+  .dark-mode .social-icons a:hover,
+  .dark-mode .social li a:hover {
+    background-color: #e30713 !important;
+  }
+  
+  /* Mobile menu */
+  .dark-mode .icon-close {
+    color: #e30713 !important;
+  }
+  
+  /* Button colors */
+  .dark-mode .btn-outline-primary {
+    border-color: #e30713 !important;
+    color: #e30713 !important;
+  }
+  
+  .dark-mode .btn-outline-primary:hover {
+    background-color: #e30713 !important;
+    color: #fff !important;
+  }
+  
+  .dark-mode .btn-primary {
+    background-color: #e30713 !important;
+    border-color: #e30713 !important;
+  }
+  
+  .dark-mode .btn-secondary {
+    background-color: #e30713 !important;
+    border-color: #e30713 !important;
+  }
+  
+  /* Fix dropdown menus */
+  .dark-mode .dropdown-menu {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+  }
+  
+  .dark-mode .dropdown-item {
+    color: #f0f0f0 !important;
+  }
+  
+  .dark-mode .dropdown-item:hover {
+    background-color: #2a2a2a !important;
+    color: #e30713 !important;
+  }
+  
+  /* Fix any transition issues */
+  .dark-mode * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  }
