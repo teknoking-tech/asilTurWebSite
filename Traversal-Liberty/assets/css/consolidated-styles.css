@@ -859,7 +859,7 @@ border-color: #ff4e00;
 }
 
 body.dark-mode .btn-primary {
-background-color: #4db8ff;
+background-color: #061c2a;
 border-color: #4db8ff;
 }
 
@@ -1177,14 +1177,14 @@ background-color: #222 !important;
 }
 
 .dark-mode .btn-style.btn-secondary {
-background-color: #444 !important;
+background-color: #b60000 !important;
 border-color: #555 !important;
 color: #fff !important;
 }
 
 .dark-mode .btn-style.btn-secondary:hover {
-background-color: #555 !important;
-border-color: #666 !important;
+background-color: #ef3939 !important;
+border-color: #870606 !important;
 }
 
 /* Çerçeve ve kenarlık renkleri */
