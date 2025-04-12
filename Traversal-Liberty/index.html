@@ -24,6 +24,10 @@
 </head>
 
 <body>
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="assets/audio/alisamadim.mp3" type="audio/mpeg">
+    Tarayıcınız audio elementini desteklemiyor.
+  </audio>
   <!--header-->
   <header id="site-header" class="fixed-top">
     <div class="container">
@@ -1292,6 +1296,36 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backgroundMusic = document.getElementById('backgroundMusic');
+      
+      // Sayfada kullanıcı etkileşimi olduğunda müziği başlat
+      document.addEventListener('click', function() {
+        if (backgroundMusic.paused) {
+          backgroundMusic.play().catch(function(error) {
+            console.log('Müzik çalınamadı:', error);
+          });
+        }
+      }, { once: true });
+      
+      // Müzik kontrol butonu
+      const musicButton = document.createElement('div');
+      musicButton.id = 'musicControlButton';
+      musicButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+      document.body.appendChild(musicButton);
+      
+      musicButton.addEventListener('click', function() {
+        if (backgroundMusic.paused) {
+          backgroundMusic.play();
+          musicButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+        } else {
+          backgroundMusic.pause();
+          musicButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
