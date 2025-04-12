@@ -1321,44 +1321,6 @@ margin-bottom: 10px;
     margin-right: 10px;
 }
 
-/* Dark Mode Uyumluluğu */
-body.dark-mode .certificate-card {
-    background-color: var(--card-bg, #2a2a2a);
-}
-
-body.dark-mode .certificate-header {
-    background: linear-gradient(135deg, #ff4e00, #8B0000);
-}
-
-body.dark-mode .certificate-img {
-    background-color: var(--card-bg, #2a2a2a);
-}
-
-body.dark-mode .certificate-img img {
-    border-color: var(--border-color, #444);
-}
-
-body.dark-mode .certificate-info {
-    border-top-color: var(--border-color, #444);
-}
-
-body.dark-mode .certificate-info p {
-    color: var(--font-color, #ddd);
-}
-
-body.dark-mode .certificate-info p strong {
-    color: var(--heading-color, #fff);
-}
-
-body.dark-mode .alert-info {
-    background-color: rgba(23, 162, 184, 0.1);
-    border-color: #17a2b8;
-    color: var(--font-color, #ddd);
-}
-
-body.dark-mode .alert-info i {
-    color: #17a2b8;
-}
 
 /* Responsive Ayarlamalar */
 @media (max-width: 991px) {
@@ -1382,3 +1344,5 @@ body.dark-mode .alert-info i {
         padding: 15px;
     }
 }
+
+
