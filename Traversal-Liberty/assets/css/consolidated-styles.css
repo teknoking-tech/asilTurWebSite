@@ -1346,3 +1346,139 @@ margin-bottom: 10px;
 }
 
 
+/* Improved Dark Mode CSS for Certificates Section */
+
+/* Target the entire certificates section */
+body.dark-mode #certificates {
+  background-color: #222222 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Certificate section titles */
+body.dark-mode #certificates .sub-title {
+  color: #ff4e00 !important;
+}
+
+body.dark-mode #certificates .hny-title {
+  color: #ffffff !important;
+}
+
+body.dark-mode #certificates h3, 
+body.dark-mode #certificates h4, 
+body.dark-mode #certificates h6 {
+  color: #ffffff !important;
+}
+
+body.dark-mode #certificates p {
+  color: #e0e0e0 !important;
+}
+
+/* Certificate cards */
+body.dark-mode #certificates .certificate-card {
+  background-color: #2a2a2a !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode #certificates .certificate-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Certificate card header */
+body.dark-mode #certificates .certificate-header {
+  background: linear-gradient(135deg, #ff4e00, #ec9f05) !important;
+}
+
+body.dark-mode #certificates .certificate-header h4 {
+  color: #ffffff !important;
+}
+
+/* Certificate image container */
+body.dark-mode #certificates .certificate-img {
+  background-color: #2a2a2a !important;
+}
+
+body.dark-mode #certificates .certificate-img img {
+  border: 1px solid #444444 !important;
+}
+
+/* Certificate info section */
+body.dark-mode #certificates .certificate-info {
+  background-color: #2a2a2a !important;
+  border-top: 1px solid #444444 !important;
+}
+
+body.dark-mode #certificates .certificate-info p {
+  color: #cccccc !important;
+}
+
+body.dark-mode #certificates .certificate-info p strong {
+  color: #ffffff !important;
+}
+
+/* Alert box */
+body.dark-mode #certificates .alert-info {
+  background-color: #1b3a4a !important;
+  border-left: 4px solid #4db8ff !important;
+  color: #93d4f0 !important;
+}
+
+body.dark-mode #certificates .alert-info .mr-2 {
+  color: #4db8ff !important;
+}
+
+/* Row background fix */
+body.dark-mode #certificates .row {
+  background-color: transparent !important;
+}
+
+/* Force override any inline background colors */
+body.dark-mode #certificates [style*="background"] {
+  background-color: #222222 !important;
+}
+
+body.dark-mode #certificates .container [style*="background"] {
+  background-color: #222222 !important;
+}
+
+/* Column background fix */
+body.dark-mode #certificates .col-lg-12,
+body.dark-mode #certificates .col-lg-6,
+body.dark-mode #certificates .col-md-4 {
+  background-color: transparent !important;
+}
+
+/* Specific fix for alert-info inside certificates section */
+body.dark-mode #certificates .certificates-note .alert-info {
+  background-color: #1b3a4a !important;
+  color: #93d4f0 !important;
+}
+
+/* Specific fixes for fas icons */
+body.dark-mode #certificates .fas.fa-info-circle,
+body.dark-mode #certificates .fas.fa-certificate,
+body.dark-mode #certificates .fas.fa-award {
+  color: #ff4e00 !important;
+}
+
+/* Override bootstrap classes if needed */
+body.dark-mode #certificates .bg-light {
+  background-color: #222222 !important;
+}
+
+body.dark-mode #certificates .text-dark {
+  color: #ffffff !important;
+}
+
+/* Fix for backgrounds with !important */
+body.dark-mode #certificates [style*="background"][style*="!important"] {
+  background-color: #222222 !important;
+}
+
+/* Root level :is selector for better specificity */
+body.dark-mode :is(#certificates, #certificates *) {
+  --section-bg: #222222;
+  --card-bg: #2a2a2a;
+  --heading-color: #ffffff;
+  --font-color: #e0e0e0;
+  --border-color: #444444;
+}
