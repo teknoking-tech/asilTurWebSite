@@ -1203,4 +1203,182 @@ background-color: #222 !important;
 margin-bottom: 10px;
 }
 }
+  /* TURSAB Belge Stili */
+  .tursab-verification {
+    margin-top: 15px;
+  }
+  
+  .tursab-badge {
+    display: block;
+  }
+  
+  .tursab-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  @media (max-width: 768px) {
+    .tursab-img {
+      max-width: 180px;
+    }
+  }
 
+   /* Sertifikalar Bölümü Stilleri */
+   .certificates-container {
+    margin-top: 30px;
+}
+
+.certificate-card {
+    background-color: var(--bg-color, #fff);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.certificate-header {
+    background: linear-gradient(135deg, var(--secondary-color, #ff4e00), #ec9f05);
+    padding: 15px 20px;
+    color: white;
+}
+
+.certificate-header h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: white !important;
+}
+
+.certificate-header h4 i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.certificate-img {
+    padding: 20px;
+    background-color: var(--bg-color, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificate-img img {
+    max-height: 300px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    border: 1px solid var(--border-color, #eee);
+}
+
+.certificate-info {
+    padding: 20px;
+    flex-grow: 1;
+    border-top: 1px solid var(--border-color, #eee);
+}
+
+.certificate-info p {
+    margin-bottom: 10px;
+    color: var(--font-color, #666);
+}
+
+.certificate-info p:last-child {
+    margin-bottom: 0;
+}
+
+.certificate-info p strong {
+    color: var(--heading-color, #333);
+    font-weight: 600;
+}
+
+.certificates-note {
+    margin-top: 30px;
+}
+
+.alert-info {
+    background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.1);
+    border-left: 4px solid var(--primary-color, #0d6efd);
+    color: var(--heading-color, #333);
+    padding: 15px 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-info i {
+    color: var(--primary-color, #0d6efd);
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Dark Mode Uyumluluğu */
+body.dark-mode .certificate-card {
+    background-color: var(--card-bg, #2a2a2a);
+}
+
+body.dark-mode .certificate-header {
+    background: linear-gradient(135deg, #ff4e00, #8B0000);
+}
+
+body.dark-mode .certificate-img {
+    background-color: var(--card-bg, #2a2a2a);
+}
+
+body.dark-mode .certificate-img img {
+    border-color: var(--border-color, #444);
+}
+
+body.dark-mode .certificate-info {
+    border-top-color: var(--border-color, #444);
+}
+
+body.dark-mode .certificate-info p {
+    color: var(--font-color, #ddd);
+}
+
+body.dark-mode .certificate-info p strong {
+    color: var(--heading-color, #fff);
+}
+
+body.dark-mode .alert-info {
+    background-color: rgba(23, 162, 184, 0.1);
+    border-color: #17a2b8;
+    color: var(--font-color, #ddd);
+}
+
+body.dark-mode .alert-info i {
+    color: #17a2b8;
+}
+
+/* Responsive Ayarlamalar */
+@media (max-width: 991px) {
+    .certificate-header h4 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .certificate-img img {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .certificate-header h4 {
+        font-size: 15px;
+    }
+    
+    .certificate-info {
+        padding: 15px;
+    }
+}
